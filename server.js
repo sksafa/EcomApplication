@@ -2,7 +2,7 @@ const express = require('express')
 const colors = require('colors')
 const moragan = require('morgan')
 const dotenv = require('dotenv');
-const mongoose  = require('mongoose');
+const mongoose  = require('mongoose')
 mongoose.set('strictQuery', true);
 // dot env config
 dotenv.config();
