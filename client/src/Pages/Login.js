@@ -3,12 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Login = () => {
   return (
-    // ---
-    // title: Sign in - Soft UI Flowbite
-    // description: Get started with a free dashboard template featuring hundreds of UI components and pages based on the Soft UI Design System, Flowbite, and Tailwind CSS
-    // layout: main
-    // group: authentication
-    // ---
+
     <div className="flex flex-col justify-center items-center px-6 pt-8 mx-auto md:h-screen pt:mt-0">
         <a href="{}" className="flex justify-center items-center mb-8 text-2xl font-semibold lg:mb-10 ">
             {/* <img src="/images/logo.svg" className="mr-4 h-10" alt="Creative Tim Logo" / > */}
@@ -36,7 +31,7 @@ const Login = () => {
                         <div className="ml-3 text-sm">
                         <label for="remember" className="font-medium text-gray-900">Remember me</label>
                         </div>
-                        <a href="#" className="ml-auto text-sm text-fuchsia-600 hover:underline">Lost Password?</a>
+                        <Link to="/forgotpassword" className="ml-auto text-sm text-fuchsia-600 hover:underline">Lost Password?</Link>
                     </div>
                     <button type="submit" className="py-3 px-5 w-full text-base font-medium text-center text-white bg-gradient-to-br from-blue-500 to-voilet-500 hover:scale-[1.02] shadow-md shadow-gray-300 transition-transform rounded-lg sm:w-auto">Login to your account</button>
                     <div className="text-sm font-medium text-gray-500">
