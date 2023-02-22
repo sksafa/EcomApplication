@@ -19,7 +19,7 @@ const ForgotPass = () => {
             </p>
             <form className="mt-8 space-y-6" action="#">
                 <div>
-                    <label for="email" className="block mb-2 text-sm font-medium text-gray-900"> Email address</label>
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900"> Email address</label>
                     <input type="email" name="email" id="email" className="border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-2 focus:ring-fuchsia-50 focus:border-fuchsia-300 block w-full p-2.5" placeholder="name@company.com" required />
                 </div>
               

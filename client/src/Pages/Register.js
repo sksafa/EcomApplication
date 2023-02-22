@@ -34,9 +34,9 @@ const Ragister = () => {
             <form onSubmit={handleSubmit(formSubmitHandler)} className="mt-8 space-y-6" action="#">
             <div className="flex -mx-3">
                       <div className="w-1/2 px-3">
-                        <label for="fitst name" className="block mb-2 text-sm font-medium text-gray-900"> first name</label>
+                        <label htmlFor="fitst name" className="block mb-2 text-sm font-medium text-gray-900"> first name</label>
                             <div className="flex">
-                                <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
+                                <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
                                 <input 
                                 type="text"
                                 {...register("firstName")} 
@@ -49,9 +49,9 @@ const Ragister = () => {
                         </div>
 
                         <div className="w-1/2 px-3">
-                        <label for="last name" className="block mb-2 text-sm font-medium text-gray-900">last name</label>
+                        <label htmlFor="last name" className="block mb-2 text-sm font-medium text-gray-900">last name</label>
                             <div className="flex">
-                                <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i class="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
+                                <div className="w-10 z-10 pl-1 text-center pointer-events-none flex items-center justify-center"><i className="mdi mdi-account-outline text-gray-400 text-lg"></i></div>
                                 <input 
                                 type="text" 
                                 {...register("lastName")}
@@ -64,7 +64,7 @@ const Ragister = () => {
             </div>
             
                 <div>
-                    <label for="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900">Your email</label>
                     <input 
                         {...register("email")}
                         type="email" 
@@ -75,12 +75,12 @@ const Ragister = () => {
                     />
                 </div>
                 {errors.email ? (
-                          <span className=""><p className=' text-red-600 text-sm'>{errors.email.message}</p></span>
+                          <span><p className=' text-red-600 text-sm'>{errors.email.message}</p></span>
                         ) : (
                           <></>
                       )}
                 <div>
-                    <label for="password" className="block mb-2 text-sm font-medium text-gray-900">Your password</label>
+                    <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900">Your password</label>
                     <input 
                         {...register("password")}
                         type="password"
@@ -96,7 +96,7 @@ const Ragister = () => {
                     <></>
                 )}
                 <div>
-                    <label for="confirm-password" className="block mb-2 text-sm font-medium text-gray-900">Confirm password</label>
+                    <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900">Confirm password</label>
                     <input 
                         {...register("confirmPassword")}
                         type="password" 
@@ -117,7 +117,7 @@ const Ragister = () => {
                         <input id="remember" aria-describedby="remember" name="remember" type="checkbox" className="w-5 h-5 rounded border-gray-300 focus:ring-3 focus:ring-0 checked:bg-dark-900" required />
                     </div>
                     <div className="ml-3 text-sm">
-                        <label for="remember" className="font-medium text-gray-900">I accept the <a href="#" className="text-fuchsia-500 hover:underline">Terms and Conditions</a></label>
+                        <label htmlFor="remember" className="font-medium text-gray-900">I accept the <a href="#" className="text-fuchsia-500 hover:underline">Terms and Conditions</a></label>
                     </div>
                 </div>
                 <input type="submit" className="py-3 px-5 w-full text-base font-medium text-center text-white bg-gradient-to-br from-blue-500 to-voilet-500 hover:scale-[1.02] shadow-md shadow-gray-300 transition-transform rounded-lg sm:w-auto"/>
