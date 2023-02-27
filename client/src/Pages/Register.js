@@ -1,11 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate} from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerSchema } from "../Components/Schema/FormSchema";
+import { registerSchema } from "../Components/Schema/registerSchema";
+import axios from 'axios';
 
 
 const Ragister = () => {
+    
+    const navigate = useNavigate();
+
     const {
         register,
         handleSubmit,
@@ -15,8 +19,21 @@ const Ragister = () => {
       });
       // Saving space
     
-      const formSubmitHandler = (data) => {
+      const formSubmitHandler = async (data) => {
         console.log(data);
+        try {
+            const res = await axios.post(`api/v1/user/register`, data)
+            if (res.data.success) {
+                // message.success
+                alert('Register successfuly');
+                navigate('/login')
+            }else{
+                alert(res.data.message);
+            }
+        } catch (error) {
+            alert(error);
+            console.log(error);
+        }
       };
   return (
 
