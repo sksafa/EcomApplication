@@ -2,31 +2,26 @@ const express = require('express')
 const colors = require('colors')
 const moragan = require('morgan')
 const dotenv = require('dotenv');
-const { default: mongoose } = require('mongoose');
+const mongoose  = require('mongoose');
+const connectDB = require('./config/db');
 mongoose.set('strictQuery', true);
-
 // dot env config
 dotenv.config();
+// mongodb connection
+connectDB();
 // rest object
 const app = express()
 
 // middleware..
 app.use(express.json())
 app.use(moragan('dev'))
-// database...
-mongoose.connect(process.env.MONGO_URL,{
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-})
-.then(()=> console.log("database is connected"))
-.catch((error)=>console.log("db connection error", error))
-// routes
-app.get('/',(req,res)=>{
-   res.status(200).send({
-    message: 'app is running'
-   })
-})
 
+
+// routes
+app.use("api/v1/user",require("./Routes/userRoutes"))
+app.get('/', (req,res)=>{
+    res.send(`<h1>App is running</h1>`)
+})
 const port = process.env.PORT || 8080;
 // listen port
 app.listen(port,()=>{
