@@ -22,7 +22,7 @@ const Ragister = () => {
       const formSubmitHandler = async (data) => {
         console.log(data);
         try {
-            const res = await axios.post(`api/v1/user/register`, data)
+            const res = await axios.post(`/api/v1/user/register`, data)
             if (res.data.success) {
                 // message.success
                 alert('Register successfuly');
