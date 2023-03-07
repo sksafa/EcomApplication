@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from '../Components/Schema/loginSchema';
+import axios from 'axios';
 
 
 const Login = () => {
-
+const navigate = useNavigate()
  
   const {
     register,
@@ -17,8 +18,23 @@ const Login = () => {
   });
   // Saving space
 
-  const formSubmitHandler = (data) => {
+  const formSubmitHandler = async (data) => {
     console.log("dude",data);
+    try {
+      const res = await axios.post(`/api/v1/user/login`, data);
+      if (res.data.success) {
+        localStorage.setItem('token', res.data.token);
+        // message.success('login success')
+        alert('login successfull')
+        navigate("/");
+      }else {
+        alert(res.data.message);
+        console.log(res.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+      alert('someting went wrong');
+    }
   };
 
 // Saving space
