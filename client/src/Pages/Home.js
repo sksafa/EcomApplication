@@ -1,12 +1,13 @@
 import React from 'react'
-import Header from '../Components/Navber/Header'
+import Navber from '../Components/Navber/Navber'
+import Footer from '../Components/Footer/Footer';
 
 
 const Home = () => {
   return (
     <div>
-      <Header />
-      {/* <h1>home</h1> */}
+      <Navber />
+      <Footer/>
     </div>
   )
 }
