@@ -1,9 +1,12 @@
 import React from 'react'
+import Header from '../Components/Navber/Header'
+
 
 const Home = () => {
   return (
     <div>
-        <h1 className=''>home</h1>
+      <Header />
+      {/* <h1>home</h1> */}
     </div>
   )
 }
