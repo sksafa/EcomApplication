@@ -87,10 +87,10 @@ const navigate = useNavigate()
                     <></>
                 )}
 
-                
-                <input type="submit" className="py-3 px-5 w-full text-base font-medium text-center text-white bg-gradient-to-br from-blue-500 to-voilet-500 hover:scale-[1.02] shadow-md shadow-gray-300 transition-transform rounded-lg sm:w-auto"/>
+                <div className=' justify-end text-end text-sm text-fuchsia-500 ml-auto' ><Link to='/forgotpassword'>Forgot Password</Link></div>
+                <input type="submit" className="py-3 px-5 w-full md:w-auto text-base font-medium text-center text-white bg-gradient-to-br from-blue-500 to-voilet-500 hover:scale-[1.02] shadow-md shadow-gray-300 transition-transform rounded-lg sm:w-auto"/>
 
-                <div className="text-sm font-medium text-gray-500">
+                <div className="text-sm font-medium text-fuchsia-500 hover:underline">
                          Not registered? <Link to="/register" className="text-blue-600 hover:underline">Create account</Link>
               </div>
               </form>
