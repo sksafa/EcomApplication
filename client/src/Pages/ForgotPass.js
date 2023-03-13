@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { loginSchema } from '../Components/Schema/loginSchema';
 import {ToastContainer,toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 const ForgotPass = () => {
 
     const [email, setEmail]= useState("");
+    const [message, setMessage] = useState();
     const setVal = (e) => {
        setEmail(e.target.value);
        console.log(email);
@@ -16,7 +15,21 @@ const ForgotPass = () => {
 
     const sendLink = async (e) => {
         e.preventDefault();
-        const res = await axios.post('/sendpasswordresetlink')
+        // const res = await axios.post('/sendpasswordresetlink')
+        const res = await fetch("/api/v1/user/sendpasswordlink",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({email})
+        });
+        const data = await res.json();
+        if (data.status == 201) {
+            setEmail("");
+            setMessage(true)
+        }else{
+            toast.error("Invalid Email");
+        }
     }
 
   return (
@@ -34,6 +47,9 @@ const ForgotPass = () => {
             <p className=' text-gray-400'>
             Enter Your Email address. You will receive a link to create a new password via email.
             </p>
+            {
+                message? <p className=' text-green-500 font-bold'> password reset link send succsfully in your Email</p>: " "
+            }
             <form className="mt-8 space-y-6" action="#">
                 <div>
                     <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900"> Email address</label>
