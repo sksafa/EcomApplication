@@ -1,6 +1,20 @@
 const userModel = require('../models/userModels');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer');
+
+// email config
+const transportar = nodemailer.createTransport({
+    service:"gmail",
+    auth:{
+        user:"mdsaymonshoab@gmail.com",
+        pass:"123456789"
+    }
+})
+
+// secret key
+const secretKey = process.env.JWT_SECRET;
+
 const registerController = async (req, res) => {
     try {
         const existingUser = await userModel.findOne({ email: req.body.email })
@@ -55,5 +69,25 @@ const loginController = async (req,res) => {
     }
  }
 
+ // send link to email for reset password
+ const PassResetController = async (req,res) => {
+    console.log(req.body);
+    const {email} = req.body;
+    if (!email) {
+        res.status(401).json({status:401,message:"Enter Your Email"})
+    }
+    try {
+        const user = await userModel.findOne({ email:email })
+        const token = jwt.sign({id:user._id},process.env.JWT_SECRET, {expiresIn:'120s'});
 
-module.exports = { loginController, registerController };
+        // console.log("token",token);
+        const setusertoken = await user.findByIdAndUpdate({_id:user._id},{
+            varifyToken: token
+        })
+        console.log(setusertoken);
+    } catch (error) {
+        
+    }
+ }
+
+module.exports = { loginController, registerController, PassResetController };
