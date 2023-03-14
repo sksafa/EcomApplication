@@ -2,11 +2,11 @@ import React from 'react'
 import hero from '../../Image/hero.png'
 const Banner = () => {
     return (
-        <div className="container mx-auto">
-            <div className="grid grid-cols-2 gap-4 ">
-                <div className=' grid content-center descriptionArea'>
-                    <h2 className="mb-5 text-4xl tracking-tight  text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Find Best Doctor</h2>
-                    <p className="mb-6 text-lg font-normal text-gray-500 lg:text-lg sm:px-16 xl:px-0 dark:text-gray-400">Great doctor if you need your family member to get immediate assistance, emergency treatment or a simple consultation..</p>
+        <div className="container my-20 mx-20">
+            <div className="grid lg:grid-cols-2 sm:grid-cols-1  gap-20 ">
+                <div className='  grid content-center descriptionArea sm:w-[70%]'>
+                    <h2 className="mb-5 text-3xl tracking-tight  text-gray-900 md:text-4xl lg:text-5xl font-bold dark:text-white">Find Best Doctor</h2>
+                    <p className="mb-6 text-lg  text-gray-500 lg:text-lg px-0  xl:px-0 dark:text-gray-400">Great doctor if you need your family member to get immediate assistance, emergency treatment or a simple consultation..</p>
 
                     <form>
                         <label for="search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
@@ -18,10 +18,10 @@ const Banner = () => {
                             <button type="submit" className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-1 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
                         </div>
                     </form>
-                    <p className="mt-6 text-lg font-normal text-gray-500 lg:text-lg sm:px-16 xl:px-0 dark:text-gray-400"><span className=''>Note: </span> Please search best doctors here</p>
+                    <p className="mt-6 text-lg font-normal text-gray-500 lg:text-lg  xl:px-0 dark:text-gray-400"><span className=''>Note: </span> Please search best doctors here</p>
                 </div>
-                <div className='imageArea'>
-                    <img src={hero} alt="" />
+                <div className='imageArea sm:w-1/2 lg:w-full'>
+                    <img width="400px" loading='lazy' src={hero} alt="" />
                 </div>
             </div>
         </div>
