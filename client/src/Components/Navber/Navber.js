@@ -1,5 +1,5 @@
 import { Button, Navbar } from 'flowbite-react'
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../Help/Images/doc_logo.jpg';
 
@@ -10,7 +10,8 @@ const Navber = () => {
  
 
       {/* // this is before code..... */}
-        <Navbar className=" fixed w-full top-0 bg-[#ecf0f159]" fluid={true}rounded={true}>
+        <Navbar className=" fixed w-full top-0 bg-[#fff]" fluid={true}rounded={true}>
+        {/* <Navbar className=" fixed w-full top-0 bg-[#ecf0f159]" fluid={true}rounded={true}> */}
   <Navbar.Brand href="https://flowbite.com/">
     <img
       src={logo}

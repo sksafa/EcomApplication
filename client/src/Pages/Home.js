@@ -2,6 +2,7 @@ import React from 'react'
 import Navber from '../Components/Navber/Navber'
 import Footer from '../Components/Footer/Footer';
 import Banner from '../Components/Banner/Banner';
+import QuestionHome from '../Components/QuestionHome/QuestionHome';
 
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
     <div>
       <Navber />
       <Banner/>
+      <QuestionHome />
       <Footer/>
     </div>
   )

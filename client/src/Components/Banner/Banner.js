@@ -1,10 +1,10 @@
 import React from 'react'
-import hero from '../../Image/hero.png'
+import hero from '../../Help/Images/hero.png'
 const Banner = () => {
     return (
-        <div className="container my-20 mx-20">
-            <div className="grid lg:grid-cols-2 sm:grid-cols-1  gap-20 ">
-                <div className='  grid content-center descriptionArea sm:w-[70%]'>
+        <div className=" my-20 mx-20">
+            <div className="grid lg:grid-cols-2 sm:grid-cols-1  gap-5 ">
+                <div className='  grid content-center md:align-middle lg:w-[90%] descriptionArea '>
                     <h2 className="mb-5 text-3xl tracking-tight  text-gray-900 md:text-4xl lg:text-5xl font-bold dark:text-white">Find Best Doctor</h2>
                     <p className="mb-6 text-lg  text-gray-500 lg:text-lg px-0  xl:px-0 dark:text-gray-400">Great doctor if you need your family member to get immediate assistance, emergency treatment or a simple consultation..</p>
 
@@ -20,8 +20,8 @@ const Banner = () => {
                     </form>
                     <p className="mt-6 text-lg font-normal text-gray-500 lg:text-lg  xl:px-0 dark:text-gray-400"><span className=''>Note: </span> Please search best doctors here</p>
                 </div>
-                <div className='imageArea sm:w-1/2 lg:w-full'>
-                    <img width="400px" loading='lazy' src={hero} alt="" />
+                <div className='imageArea md:align-middle lg:w-full'>
+                    <img width="500px" loading='lazy' src={hero} alt="" />
                 </div>
             </div>
         </div>
