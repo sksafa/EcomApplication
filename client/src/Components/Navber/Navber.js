@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom'
 import logo from '../../Help/Images/doc_logo.jpg';
 
 const Navber = () => {
+
   return (
     <div>
-        <Navbar fluid={true}rounded={true}>
+ 
+
+      {/* // this is before code..... */}
+        <Navbar className=" fixed w-full top-0 bg-[#fff]" fluid={true}rounded={true}>
+        {/* <Navbar className=" fixed w-full top-0 bg-[#ecf0f159]" fluid={true}rounded={true}> */}
   <Navbar.Brand href="https://flowbite.com/">
     <img
       src={logo}
@@ -23,7 +28,7 @@ const Navber = () => {
     </Button>
     <Navbar.Toggle />
   </div>
-  <Navbar.Collapse>
+  <Navbar.Collapse className=''>
     <Navbar.Link
       href="/navbars"
       active={true}
