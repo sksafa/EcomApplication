@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useEffect } from 'react';
 
 import { Toaster } from 'react-hot-toast';
+import QuestionHome from '../Components/QuestionHome/QuestionHome';
 
 
 const Home = () => {
@@ -33,7 +34,10 @@ const Home = () => {
     <div>
        <Toaster />
       <Navber />
+      <div className=' px-20'>
       <Banner/>
+      <QuestionHome />
+      </div>
       <Footer/>
     </div>
   )
