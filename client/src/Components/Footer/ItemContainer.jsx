@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Item from './Item';
 
 const ItemContainer = () => {
   return (
@@ -9,10 +8,10 @@ const ItemContainer = () => {
 <footer className="p-4 sm:p-6 dark:bg-gray-900">
     <div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
-            <a href="https://flowbite.com/" className="flex items-center mb-4">
+            <Link to="https://flowbite.com/" className="flex items-center mb-4">
                 <img src="https://flowbite.com/docs/images/logo.svg" className="h-8 mr-3" alt="FlowBite Logo" />
                 <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white ">IBN SINA</span>
-            </a>
+            </Link>
             <span className='text-sm text-gray-300 '>Great doctor if you need your family member to get<br/> effective immediate assistance, emergency treatment <br/> or a simple consultation.</span>
         </div>
         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">

@@ -4,10 +4,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from '../Components/Schema/loginSchema';
 import axios from 'axios';
-
+import { useDispatch } from "react-redux";
+import { showLoading, hideLoading } from "../redux/features/alertSlice";
+import toast from "react-hot-toast";
 
 const Login = () => {
 const navigate = useNavigate()
+const dispatch = useDispatch();
  
   const {
     register,
@@ -19,21 +22,20 @@ const navigate = useNavigate()
   // Saving space
 
   const formSubmitHandler = async (data) => {
-    console.log("dude",data);
     try {
+      dispatch(showLoading());
       const res = await axios.post(`/api/v1/user/login`, data);
+      dispatch(hideLoading());
       if (res.data.success) {
         localStorage.setItem('token', res.data.token);
-        // message.success('login success')
-        alert('login successfull')
+        toast.success('login successfully')
+        // alert('login successfull')
         navigate("/");
       }else {
-        alert(res.data.message);
-        console.log(res.data.message);
+        toast.error(res.data.message);
       }
     } catch (error) {
       console.log(error);
-      alert('someting went wrong');
     }
   };
 
@@ -42,10 +44,10 @@ const navigate = useNavigate()
   return (
     // after login system....... start...........
     <div className="flex flex-col justify-center items-center px-6 pt-8 mx-auto md:h-screen pt:mt-0">
-    <a  className="flex justify-center items-center mb-8 text-2xl font-semibold lg:mb-10">
+    <p  className="flex justify-center items-center mb-8 text-2xl font-semibold lg:mb-10">
         {/* <img src="/images/logo.svg" className="mr-4 h-10" alt="Creative Tim Logo" /> */}
         <span className="self-center text-2xl font-bold whitespace-nowrap">THE IBN SINA TRUST</span> 
-    </a>
+    </p>
     {/* <!-- Card --> */}
     <div className="p-10 w-full max-w-lg bg-white rounded-2xl shadow-xl shadow-gray-300">
         <div className="space-y-8">
