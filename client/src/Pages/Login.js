@@ -30,7 +30,7 @@ const dispatch = useDispatch();
         localStorage.setItem('token', res.data.token);
         toast.success('login successfully')
         // alert('login successfull')
-        navigate("/");
+        navigate("/dashboard");
       }else {
         toast.error(res.data.message);
       }
