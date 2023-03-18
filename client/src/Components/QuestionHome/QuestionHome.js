@@ -4,16 +4,16 @@ import AccorditionFlobite from './AccorditionFlobite'
 const QuestionHome = () => {
   return (
     <>
-    <div className='container'>
-     <div classname>
+    <div className='container my-10'>
+     <div className='flex'>
         <div id='sideImageDev'>
             <img 
-
+              loading='lazy'
+              width='900px'
               src={QuestionDoctor}
              />
         </div>
-        <div id='questionSide'>
-          <h1>hello this is question part</h1>
+        <div id='questionSide' className=' w-[800px]  mt-16'>
           <AccorditionFlobite />
         </div>        
      </div>

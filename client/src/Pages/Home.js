@@ -9,8 +9,10 @@ const Home = () => {
   return (
     <div>
       <Navber />
+      <div className=' px-20'>
       <Banner/>
       <QuestionHome />
+      </div>
       <Footer/>
     </div>
   )
