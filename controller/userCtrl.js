@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 const transportar = nodemailer.createTransport({
     service:"gmail",
     auth:{
-        user:"mdsaymonshoab@gmail.com",
+        user:"djshoab@gmail.com",
         pass:"123456789"
     }
 })
@@ -78,13 +78,13 @@ const loginController = async (req,res) => {
     }
     try {
         const user = await userModel.findOne({ email:email })
-        const token = jwt.sign({id:user._id},process.env.JWT_SECRET, {expiresIn:'120s'});
+        const token = jwt.sign({id:user._id},secretKey, {expiresIn:'120s'});
 
-        // console.log("token",token);
-        const setusertoken = await user.findByIdAndUpdate({_id:user._id},{
-            varifyToken: token
+        console.log("token",token);
+        const setusertoken = await user.findByIdAndUpdate({id:user._id},{
+          verifytoken: token
         })
-        console.log(setusertoken);
+        console.log("setusertoken",setusertoken);
     } catch (error) {
         
     }

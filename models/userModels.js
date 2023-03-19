@@ -17,7 +17,15 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, "password is required"]
     },
-    varifyToken:{
+    tokens: [
+       {
+        token:{
+            type:String,
+            required: true,
+        }
+       }
+    ],
+    verifytoken:{
         type:String,
     }
 })
