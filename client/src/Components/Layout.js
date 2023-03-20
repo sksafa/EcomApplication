@@ -1,9 +1,10 @@
 import React from "react";
 import "../styles/LayoutStyles.css";
-import { SidebarMenu } from "./../Data/data";
+import { SidebarMenu } from "./../Data/SidebarData";
 
 import { Link, useLocation } from "react-router-dom";
 import Navber from "./Navber/Navber";
+import DashboardHeader from "./DashboardHeader/DashboardHeader";
 const Layout = ({ children }) => {
     const location = useLocation();
     return (
@@ -12,7 +13,7 @@ const Layout = ({ children }) => {
                 <div className="layout">
                     <div className="sidebar">
                         <div className="logo">
-                            <h6>DOC APP</h6>
+                            <h4>IBN SINA</h4>
                             <hr />
                         </div>
                         <div className="menu">
@@ -30,7 +31,9 @@ const Layout = ({ children }) => {
                         </div>
                     </div>
                     <div className="content">
-                        <div className="header">Header</div>
+                        <div className="header">
+                            <DashboardHeader />
+                        </div>
                         <div className="body">{children}</div>
                     </div>
                 </div>

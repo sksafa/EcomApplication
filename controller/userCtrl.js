@@ -78,10 +78,10 @@ const loginController = async (req,res) => {
     }
     try {
         const user = await userModel.findOne({ email:email })
-        const token = jwt.sign({id:user._id},secretKey, {expiresIn:'120s'});
+        const token = jwt.sign({_id:user._id},secretKey, {expiresIn:'120s'});
 
         console.log("token",token);
-        const setusertoken = await user.findByIdAndUpdate({id:user._id},{
+        const setusertoken = await user.findByIdAndUpdate({_id:user._id},{
           verifytoken: token
         })
         console.log("setusertoken",setusertoken);
