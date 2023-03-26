@@ -1,10 +1,10 @@
 import React from "react";
 import "../styles/LayoutStyles.css";
 import { SidebarMenu } from "./../Data/SidebarData";
-
 import { Link, useLocation } from "react-router-dom";
-import Navber from "./Navber/Navber";
-import DashboardHeader from "./DashboardHeader/DashboardHeader";
+import DashboardHeader from "./DashboardHeader/index";
+
+
 const Layout = ({ children }) => {
     const location = useLocation();
     return (
