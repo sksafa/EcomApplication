@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaBars, FaBreadSlice, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
+import { FaAngleDown, FaArrowDown, FaBars, FaBreadSlice, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
 import { MdMessage } from "react-icons/md";
 import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
@@ -163,12 +163,12 @@ const Sidebar = () => {
           {routes.map((route,index)=>{
             if (route.subRoutes) {
                 return (
-                  <MenuSidebar
+                 <MenuSidebar
                     setIsOpen={setIsOpen}
                     route={route}
                     showAnimation={showAnimation}
                     isOpen={isOpen}
-                  />
+                 />
                 );
               }
             return (
