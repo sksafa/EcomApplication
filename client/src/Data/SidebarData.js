@@ -1,14 +1,14 @@
 
 export const SidebarMenu = [
     {
-      name: "Home",
+      name: "Dashboard",
       path: "/dashboard",
-      icon: "fa-solid fa-house",
+      icon: "fa-regular fa-gauge",
     },
     {
       name: "Appointments",
       path: "/appointments",
-      icon: "fa-solid fa-list",
+      icon: "fa-duotone fa-stethoscope",
     },
     {
       name: "Apply Doctor",
