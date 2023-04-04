@@ -1,19 +1,7 @@
 .main-container {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
   }
-
-.menu-container{
-    display: flex;
-    flex-direction: column;
-}
-
-.menu-container .link{
-    padding-left: 20px;
-    border-bottom: #fff 0.5px solid;
-}
-
-
   /* Sidebar */
 .sidebar {
     background: rgb(0, 7, 61);
@@ -91,12 +79,13 @@
 }
 .menu{
     display: flex;
-    justify-content: space-between;
     color: white;
     gap: 10px;
-    padding: 5px 10px ;
-    text-decoration: none;
+    padding: 5px 10px;
+    border-right: 4px solid transparent;
     transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+    justify-content: space-between;
+
 }
 
 .menu_item{
@@ -104,6 +93,16 @@
     gap: 10px;
 
     // margin-bottom: 5px;
+}
+
+.menu-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-container .link{
+    padding-left: 20px;
+    border-bottom: #fff 0.5px solid;
 }
 
 a {

@@ -91,7 +91,7 @@ const routes = [
   ];
   
 
-const Sidebar = () => {
+const Sidebar = ({children}) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen); 
     const inputAnimation = {
@@ -130,17 +130,27 @@ const Sidebar = () => {
     }
   return (
     <div className='main-container'>
-        <motion.div animate={{width:isOpen ?  "200px" : "35px",  transition: {
+        <motion.div 
+        animate={{
+            width:isOpen ?  "200px" : "35px",
+            transition: {
               duration: 0.5,
               type: "spring",
               damping: 10,
-            },}} className={`sidebar `}>
+            },}}
+             className='sidebar'>
          <div className='top_section'>
+         <AnimatePresence>     
             { isOpen &&  <motion.h1 
                     variants={showAnimation}
                     initial="hidden"
                     animate="show"
-                    exit="hidden" className='logo'>THE IBN SINA</motion.h1> }
+                    exit="hidden" 
+                    className='logo'>
+                      THE IBN SINA
+                    </motion.h1> }
+          </AnimatePresence>
+            
             <div className='bars cursor-pointer'>
                 <FaBars onClick={toggle}/>
             </div>
@@ -150,13 +160,14 @@ const Sidebar = () => {
                 <BiSearch/>
             </div>
         <AnimatePresence>
-           { isOpen &&<motion.input
+           { isOpen && (<motion.input
             variants={inputAnimation}
             initial="hidden" 
             animate="show" 
             exit="hidden"  
             type="text"
-            placeholder='search...'/>}
+            placeholder='search...'/>
+            )}
         </AnimatePresence>
          </div>
          <section className='routes'>
@@ -172,20 +183,27 @@ const Sidebar = () => {
                 );
               }
             return (
-            <NavLink activeClassName="active" to={route.path} key={route.name} className='link'>
+            <NavLink 
+               to={route.path} 
+               key={index} 
+               className='link'
+               activeClassName="active" 
+               >
                 <div className="icon">{route.icon}</div>
                 <AnimatePresence >
-                {isOpen && <motion.div
+                {isOpen && (<motion.div
                  variants={showAnimation}
                     initial="hidden"
                     animate="show"
                     exit="hidden"
                     className='link_text'>
                         {route.name}
-                    </motion.div>} 
+                    </motion.div>
+                )} 
                 </AnimatePresence>
-            </NavLink>)
-})}
+            </NavLink>
+            );
+         })}
          </section>
         </motion.div>
     </div>

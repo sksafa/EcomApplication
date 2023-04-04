@@ -22,12 +22,33 @@ const menuAnimation = {
   },
 };
 
+const menuItemAnimation = {
+  hidden: (i) => ({
+    padding: 0,
+    x: "-100%",
+    transition: {
+      duration: (i + 1) * 0.1,
+    },
+  }),
+  show: (i) => ({
+    x: 0,
+    transition: {
+      duration: (i + 1) * 0.1,
+    },
+  }),
+};
+
 const MenuSidebar = ({showAnimation,route,isOpen,setIsOpen}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     setIsOpen(true);
   };
+  // useEffect(() => {
+  //   if (!isOpen) {
+  //     setIsMenuOpen(false);
+  //   }
+  // }, [isOpen]);
   return (
     <>
     <div className='menu cursor-pointer' onClick={toggleMenu}>
@@ -57,10 +78,14 @@ const MenuSidebar = ({showAnimation,route,isOpen,setIsOpen}) => {
     exit="hidden"
     className="menu-container"> 
     {route.subRoutes.map((subRoute,i)=>(
-           <NavLink 
+           <motion.div
+             variants={menuItemAnimation}
+             custom={i}
+             key={i} 
+           >
+       <NavLink 
            activeClassName="active" 
            to={subRoute.path} 
-           key={i} 
            className='link'>
            <div className="icon">{subRoute.icon}</div>
            <AnimatePresence >
@@ -71,6 +96,8 @@ const MenuSidebar = ({showAnimation,route,isOpen,setIsOpen}) => {
                </motion.div>} 
            </AnimatePresence>
        </NavLink>
+      </motion.div>
+         
        ))}
     </motion.div>}
     </AnimatePresence>
