@@ -5,7 +5,7 @@ import Searchber from './Searchber';
 import UserProfileDrop from './UserProfileDrop';
 const DashboardHeader = () => {
   return (
-    <div className='flex px-5'>
+    <div className='flex px-5 justify-between'>
       <Searchber/>
       <UserProfileDrop />
     </div>

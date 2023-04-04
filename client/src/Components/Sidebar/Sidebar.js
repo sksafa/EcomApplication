@@ -19,18 +19,28 @@ const routes = [
       icon: <FaHome />,
     },
     {
-      path: "/users",
-      name: "Users",
+      path: "/appointments",
+      name: "Appointments",
       icon: <FaUser />,
     },
     {
-      path: "/messages",
-      name: "Messages",
+      path: "/apply_doctor",
+      name: "Apply Doctor",
+      icon: <FaUser />,
+    },
+    {
+      path: "/profile",
+      name: "profile",
       icon: <MdMessage />,
     },
     {
-      path: "/analytics",
-      name: "Analytics",
+      path: "/patients",
+      name: "Doctor Category",
+      icon: <BiAnalyse />,
+    },
+    {
+      path: "/logout",
+      name: "Logout",
       icon: <BiAnalyse />,
     },
     {
@@ -92,7 +102,7 @@ const routes = [
   
 
 const Sidebar = ({children}) => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const toggle = () => setIsOpen(!isOpen); 
     const inputAnimation = {
         hidden: {

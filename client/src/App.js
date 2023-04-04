@@ -12,6 +12,7 @@ import ProtectedRoute from "./Components/ProtectedRoute";
 import PublicRoute from "./Components/PublicRoute";
 import HomePage from './Pages/HomePage';
 import Profile from './Pages/Profile';
+import ApplyDoctor from './Pages/ApplyDoctor';
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -36,6 +37,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              } />
+
+            <Route
+              path='/apply_doctor'
+              element={
+                <ProtectedRoute>
+                  <ApplyDoctor/>
                 </ProtectedRoute>
               } />
 

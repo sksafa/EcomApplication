@@ -10,9 +10,6 @@ import { useState } from "react";
   
 const Layout = ({ children }) => {
    
-
-       
-
     return (
         <>
             <div className="main">
