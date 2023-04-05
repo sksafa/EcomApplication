@@ -44,11 +44,11 @@ const MenuSidebar = ({showAnimation,route,isOpen,setIsOpen}) => {
     setIsMenuOpen(!isMenuOpen);
     setIsOpen(true);
   };
-  // useEffect(() => {
-  //   if (!isOpen) {
-  //     setIsMenuOpen(false);
-  //   }
-  // }, [isOpen]);
+  useEffect(() => {
+    if (!isOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [isOpen]);
   return (
     <>
     <div className='menu cursor-pointer' onClick={toggleMenu}>
@@ -65,9 +65,9 @@ const MenuSidebar = ({showAnimation,route,isOpen,setIsOpen}) => {
           </motion.div>} 
       </AnimatePresence>
     </div>
-    <div>
+    {isOpen && <motion.div className=" mt-2" animate={isMenuOpen ? {rotate:-180} : {roatet:0}}>
       <FaAngleDown/>
-    </div>
+    </motion.div>}
     </div>
     <AnimatePresence>
     { isMenuOpen &&
@@ -106,4 +106,4 @@ const MenuSidebar = ({showAnimation,route,isOpen,setIsOpen}) => {
   )
 }
 
-export default MenuSidebar
+export default MenuSidebar;

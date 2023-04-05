@@ -1,10 +1,12 @@
 import React from 'react'
-import { FaAngleDown, FaArrowDown, FaBars, FaBreadSlice, FaHome, FaLock, FaMoneyBill, FaUser } from "react-icons/fa";
-import { MdMessage } from "react-icons/md";
+import {  FaBars,  FaHome, FaLock, FaMoneyBill, FaUser, FaUsers } from "react-icons/fa";
+import {  SlCalender } from "react-icons/sl";
+import {  GiDoctorFace } from "react-icons/gi";
+import {  CgProfile } from "react-icons/cg";
 import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
-import { AiFillHeart, AiTwotoneFileExclamation } from "react-icons/ai";
-import { BsCartCheck } from "react-icons/bs";
+import { AiFillDashboard, AiFillHeart } from "react-icons/ai";
+import { BsCartCheck, BsPersonFillAdd } from "react-icons/bs";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import './Sidebar.scss';
@@ -16,12 +18,12 @@ const routes = [
     {
       path: "/",
       name: "Dashboard",
-      icon: <FaHome />,
+      icon: <AiFillDashboard />,
     },
     {
       path: "/appointments",
       name: "Appointments",
-      icon: <FaUser />,
+      icon: <SlCalender />,
     },
     {
       path: "/apply_doctor",
@@ -29,39 +31,30 @@ const routes = [
       icon: <FaUser />,
     },
     {
-      path: "/profile",
-      name: "profile",
-      icon: <MdMessage />,
-    },
-    {
       path: "/patients",
       name: "Doctor Category",
       icon: <BiAnalyse />,
     },
+
     {
-      path: "/logout",
-      name: "Logout",
-      icon: <BiAnalyse />,
-    },
-    {
-      path: "/file-manager",
-      name: "File Manager",
-      icon: <AiTwotoneFileExclamation />,
+      path: "/doctor",
+      name: "Doctor",
+      icon: <GiDoctorFace />,
       subRoutes: [
         {
-          path: "/settings/profile",
-          name: "Profile ",
-          icon: <FaUser />,
+          path: "/doctor/doctors",
+          name: "Doctors ",
+          icon: <FaUsers />,
         },
         {
-          path: "/settings/2fa",
-          name: "2FA",
-          icon: <FaLock />,
+          path: "/doctor/addDoctor",
+          name: "Add Doctor",
+          icon: <BsPersonFillAdd />,
         },
         {
-          path: "/settings/billing",
-          name: "Billing",
-          icon: <FaMoneyBill />,
+          path: "/doctor/doctorProfile",
+          name: "Profile",
+          icon: <CgProfile />,
         },
       ],
     },
@@ -142,7 +135,7 @@ const Sidebar = ({children}) => {
     <div className='main-container'>
         <motion.div 
         animate={{
-            width:isOpen ?  "200px" : "35px",
+            width:isOpen ?  "200px" : "45px",
             transition: {
               duration: 0.5,
               type: "spring",
@@ -189,6 +182,7 @@ const Sidebar = ({children}) => {
                     route={route}
                     showAnimation={showAnimation}
                     isOpen={isOpen}
+                    key={route.name}
                  />
                 );
               }

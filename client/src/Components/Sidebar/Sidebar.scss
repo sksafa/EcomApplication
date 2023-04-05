@@ -33,11 +33,17 @@
     line-height: 0;
 }
 .bars {
-    width: 30px;
+    font-size: 25px;
   }
-  .hide {
+
+.search_icon{
+    font-size: 25px;
+
+}
+
+.hide {
     display: none;
-  }
+}
 .search{
     display: flex;
     align-items: center;
@@ -58,6 +64,8 @@
     color: white;
     gap: 10px;
     padding: 5px 10px ;
+    margin-bottom: 2px;
+    margin-top: 2px;
     text-decoration: none;
     transition: 0.2s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
@@ -70,12 +78,13 @@
 .link_text{
     white-space: nowrap;
     font-size: 15px;
+    align-items: center;
+    margin-top: 3px;
 }
 .icon{
-    margin-bottom: 5px;
-    margin-top: 5px;
+
     white-space: nowrap;
-    font-size: 15px;
+    font-size: 25px;
 }
 .menu{
     display: flex;

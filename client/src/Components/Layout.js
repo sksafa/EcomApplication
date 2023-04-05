@@ -1,10 +1,9 @@
 import React from "react";
-import "../styles/LayoutStyles.css";
+import "../styles/LayoutStyles.scss";
 
 
 import DashboardHeader from "./DashboardHeader/index";
 import Sidebar from "./Sidebar/Sidebar";
-import { useState } from "react";
 
 
   
@@ -12,12 +11,9 @@ const Layout = ({ children }) => {
    
     return (
         <>
-            <div className="main">
+            <div className="main bg-black">
                 <div className="layout">
-                    {/* <div className="sidebar">
-
-                    </div> */}
-                    <Sidebar props={{children}}/>
+                    <Sidebar/>
                     <div className="content">
                         <div className="header">
                             <DashboardHeader />
