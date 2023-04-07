@@ -2,15 +2,27 @@ import React from 'react'
 import logo from '../../Help/Images/doc_logo.jpg'
 import { PopupMenu } from "react-simple-widgets";
 import avater from '../../Help/Images/avater.png'
+import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import toast from "react-hot-toast";
+
 const UserProfileDrop = () => {
+  const { user } = useSelector((state) => state.user);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.clear();
+    toast.success("Logout Successfully");
+    navigate("/login");
+  };
   return (
     <div className=' flex '>
-      
+     <h6 className='text-white mr-3 mt-1'>{user?.name}</h6>
       <div className="text-end">
+       
         <PopupMenu>
           <span className="  cursor-pointer ">
-            {/* <small>Profile</small> */} 
-            <img loading='lazy' className="w-[30px] h-[30px] mr-0 rounded-full" src={avater} alt="Rounded avatar"/>
+            {/* <small>Profile</small> */}
+            <img loading='lazy' className="w-[30px] h-[30px] mr-0 rounded-full" src={avater} alt="Rounded avatar" />
           </span>
 
           <div className="w-[250px] text-start">
@@ -19,8 +31,8 @@ const UserProfileDrop = () => {
                 <span>K</span>
               </div>
 
-              <h5 className="text-center font-bold mb-0">John Doe</h5>
-              <p className="text-center font-bold mb-2">jd@gmail.com</p>
+              <h5 className="text-center font-bold mb-0">Name: {user?.name}</h5>
+              <p className="text-center font-bold mb-2">Email: {user?.email}</p>
 
               <hr />
 
@@ -45,14 +57,14 @@ const UserProfileDrop = () => {
                 <button className="list-group-item list-group-item-action px-4">
                   <small>Change Requests</small>
                 </button>
-             
+
               </div>
 
               <hr style={{ margin: "0 -24px 24px" }} />
 
               <div className="d-grid">
                 <button className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
-                  <small>Logout</small>
+                  <small onClick={handleLogout}>Logout</small>
                 </button>
               </div>
             </div>
