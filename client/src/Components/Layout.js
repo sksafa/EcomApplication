@@ -1,12 +1,8 @@
 import React from "react";
 import "../styles/LayoutStyles.scss";
-
-
 import DashboardHeader from "./DashboardHeader/index";
 import Sidebar from "./Sidebar/Sidebar";
 
-
-  
 const Layout = ({ children }) => {
    
     return (

@@ -71,6 +71,7 @@ const Sidebar = ({ children }) => {
             damping: 10,
           },
         }}
+        style={{marginRight:'50px'}}
         className='sidebar'>
         <div className='top_section'>
           <AnimatePresence>

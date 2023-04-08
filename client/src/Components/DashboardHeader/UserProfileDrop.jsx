@@ -5,6 +5,9 @@ import avater from '../../Help/Images/avater.png'
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
+import { Badge, message } from "antd";
+import { BiCog } from "react-icons/bi";
+import { AiOutlineBell } from "react-icons/ai";
 
 const UserProfileDrop = () => {
   const { user } = useSelector((state) => state.user);
@@ -15,10 +18,19 @@ const UserProfileDrop = () => {
     navigate("/login");
   };
   return (
+
     <div className=' flex '>
-     <h6 className='text-white mr-3 mt-1'>{user?.name}</h6>
+
+
+      <div className='mr-6' >
+        <Badge  count={user && user.notifcation.length}>\
+          <i className="fa-solid fa-bell"></i>
+          <AiOutlineBell style={{ color: '#fff',fontSize:'28px',fontWeight:'bold',marginTop:'-15px' }}  />
+        </Badge>
+
+      </div>
+      <h6 className='text-white mr-3 mt-1'>{user?.name}</h6>
       <div className="text-end">
-       
         <PopupMenu>
           <span className="  cursor-pointer ">
             {/* <small>Profile</small> */}
