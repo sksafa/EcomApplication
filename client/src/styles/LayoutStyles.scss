@@ -3,7 +3,7 @@
 
   padding: 0;
   height: 100vh;
-  // background-color: #f8f9fa;
+  background-color:#F3F3F8;
 }
 .layout {
   display: flex;
@@ -18,14 +18,14 @@
   height: 7vh;
   /* margin-bottom: 5px;
   margin-top: 5px; */
-  margin: 5px;
+  // margin: 5px;
   box-shadow: 0 0 1px gray;
   background-color: #00073d;
   border-radius: 5px;
 }
 .body {
-  height: 85vh;
-  margin: 5px;
+  height: 95vh;
+  margin: 15px;
   box-shadow: 0 0 1px gray;
   background-color: white;
   border-radius: 5px;
