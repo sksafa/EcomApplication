@@ -1,6 +1,5 @@
 .main {
   margin: 0;
-
   padding: 0;
   height: 100vh;
   background-color:#F3F3F8;
@@ -16,19 +15,24 @@
 
 .header {
   height: 7vh;
-  /* margin-bottom: 5px;
-  margin-top: 5px; */
-  // margin: 5px;
+  // display: relative;
   box-shadow: 0 0 1px gray;
   background-color: #00073d;
-  border-radius: 5px;
+  // margin-left: 200px;
+  // overflow-y: hidden;
+
+  // border-radius: 5px;
 }
 .body {
-  height: 95vh;
+  height: 85vh;
   margin: 15px;
+  // margin-left: 200px;
+  // position: fixed;
   box-shadow: 0 0 1px gray;
   background-color: white;
   border-radius: 5px;
+  // overflow-y: auto;
+
 }
 .logo h4 {
   font-size: 1.5rem;
