@@ -158,9 +158,10 @@ const getAllNotificationController = async(req, res) => {
       user.seennotification = notifcation;
       const updatedUser = await user.save();
       res.status(200).send({
-        success: ture,
+        success: true,
         message: 'all notification marked as user',
-        data: updatedUser
+        data: updatedUser,
+        
       })
     } catch (error) {
       console.log(error)
