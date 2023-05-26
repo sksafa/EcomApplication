@@ -23,7 +23,7 @@ const UserProfileDrop = () => {
 
 
       <div className='mr-6' >
-        <Badge  count={user && user.notifcation.length}>\
+        <Badge style={{cursor:'pointer'}}  count={user && user.notifcation.length} onClick={()=> {navigate('/notification')}}>
           <i className="fa-solid fa-bell"></i>
           <AiOutlineBell style={{ color: '#fff',fontSize:'28px',fontWeight:'bold',marginTop:'-15px' }}  />
         </Badge>

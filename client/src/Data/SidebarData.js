@@ -1,4 +1,4 @@
-import { FaBars, FaHome, FaLock, FaMoneyBill, FaUser, FaUsers } from "react-icons/fa";
+import { FaBars, FaEnvelopeOpenText, FaHome, FaLock, FaMoneyBill, FaUser, FaUsers } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { GiDoctorFace } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
@@ -55,6 +55,11 @@ export const adminMenu = [
         path: "/doctor/doctorProfile",
         name: "Profile",
         icon: <CgProfile />,
+    },
+    {
+        path: "/approve_doctor",
+        name: "Approve Doctors",
+        icon: <FaEnvelopeOpenText />,
     },
     {
         path: "/doctor",

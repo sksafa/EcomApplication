@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import './Sidebar.scss';
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import MenuSidebar from './MenuSidebar';
-import { adminMenu, userMenu } from '../../Data/data';
+import { adminMenu, userMenu } from '../../Data/SidebarData';
 import { useSelector } from 'react-redux';
 import toast from "react-hot-toast";
 
@@ -61,7 +61,7 @@ const Sidebar = ({ children }) => {
     }
   }
   return (
-    <div className='main-container'>
+    <div className='main-container '>
       <motion.div
         animate={{
           width: isOpen ? "200px" : "45px",
@@ -71,7 +71,7 @@ const Sidebar = ({ children }) => {
             damping: 10,
           },
         }}
-        style={{marginRight:'50px'}}
+        style={{marginRight:'10px'}}
         className='sidebar'>
         <div className='top_section'>
           <AnimatePresence>
@@ -141,9 +141,9 @@ const Sidebar = ({ children }) => {
           })}
         </section>
 
-         <div className="flex">
+         {/* <div className="flex">
          <FaBars className='ml-3 mt-2'/> <h5 className='ml-2 mt-1 cursor-pointer' onClick={handleLogout}>Logout</h5>
-         </div>
+         </div> */}
       </motion.div>
     </div>
   )

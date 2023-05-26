@@ -7,11 +7,11 @@ const Layout = ({ children }) => {
    
     return (
         <>
-            <div className="main bg-black">
+            <div className="main">
                 <div className="layout">
                     <Sidebar/>
                     <div className="content">
-                        <div className="header">
+                        <div className="header sticky top-0">
                             <DashboardHeader />
                         </div>
                         <div className="body">{children}</div>

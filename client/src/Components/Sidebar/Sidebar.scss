@@ -1,15 +1,16 @@
 .main-container {
     display: flex;
-    // flex-direction: column;
   }
   /* Sidebar */
 .sidebar {
     // background: rgb(0, 7, 61);
     // background: #29363D;
-    background: #fff;
-    // color: black;
-    color: rgb(53, 49, 49);
+    background:#3F5289;
+    color: #D7DBE7;
+    // color: rgb(53, 49, 49);
     height: 100vh;
+    // position: fixed;
+    // top: 0;
     overflow-y: auto;
   }
 
@@ -67,7 +68,8 @@
 .link{
     display: flex;
     // color: white;
-    color: rgb(53, 49, 49);
+    // color: rgb(53, 49, 49);
+    color: #D7DBE7;
     gap: 10px;
     padding: 5px 10px ;
     margin-bottom: 2px;
@@ -96,8 +98,8 @@
 }
 .menu{
     display: flex;
-    // color: white;
-    color: rgb(53, 49, 49);
+    color: white;
+    // color: rgb(53, 49, 49);
     font: bold;
     gap: 10px;
     padding: 5px 10px;
