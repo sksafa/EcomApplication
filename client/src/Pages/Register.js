@@ -119,7 +119,7 @@ const Ragister = () => {
                                 <input id="remember" aria-describedby="remember" name="remember" type="checkbox" className="w-5 h-5 rounded border-gray-300 focus:ring-3 focus:ring-0 checked:bg-dark-900" required />
                             </div>
                             <div className="ml-3 text-sm">
-                                <label htmlFor="remember" className="font-medium text-gray-900">I accept the <a href="#" className="text-fuchsia-500 hover:underline">Terms and Conditions</a></label>
+                                <label htmlFor="remember" className="font-medium text-gray-900">I accept the <span  className="text-fuchsia-500 hover:underline">Terms and Conditions</span></label>
                             </div>
                         </div>
                         <input type="submit" className="py-3 px-5 w-full text-base font-medium text-center text-white bg-gradient-to-br from-blue-500 to-voilet-500 hover:scale-[1.02] shadow-md shadow-gray-300 transition-transform rounded-lg sm:w-auto" />

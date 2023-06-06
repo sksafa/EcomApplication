@@ -1,5 +1,6 @@
 import { Accordion } from 'flowbite-react'
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const AccorditionFlobite = () => {
   return (
@@ -15,12 +16,12 @@ const AccorditionFlobite = () => {
       </p>
       <p className="text-gray-500 dark:text-gray-400">
         Check out this guide to learn how to
-        <a
-          href="https://flowbite.com/docs/getting-started/introduction/"
+        <Link
+          to="https://flowbite.com/docs/getting-started/introduction/"
           className="text-blue-600 hover:underline dark:text-blue-500"
         >
           get started
-        </a>
+        </Link>
          and start developing websites even faster with components on top of Tailwind CSS.
       </p>
     </Accordion.Content>
@@ -35,12 +36,12 @@ const AccorditionFlobite = () => {
       </p>
       <p className="text-gray-500 dark:text-gray-400">
         Check out the 
-        <a
-          href="https://flowbite.com/figma/"
+        <Link
+          to="https://flowbite.com/figma/"
           className="text-blue-600 hover:underline dark:text-blue-500"
         >
           Figma design system
-        </a>
+        </Link>
          based on the utility classes from Tailwind CSS and components from Flowbite.
       </p>
     </Accordion.Content>
@@ -61,21 +62,21 @@ const AccorditionFlobite = () => {
       </p>
       <ul className="list-disc pl-5 text-gray-500 dark:text-gray-400">
         <li>
-          <a
-            href="https://flowbite.com/pro/"
+          <Link
+            to="https://flowbite.com/pro/"
             className="text-blue-600 hover:underline dark:text-blue-500"
           >
             Flowbite Pro
-          </a>
+          </Link>
         </li>
         <li>
-          <a
-            href="https://tailwindui.com/"
+          <Link
+            to="https://tailwindui.com/"
             rel="nofollow"
             className="text-blue-600 hover:underline dark:text-blue-500"
           >
             Tailwind UI
-          </a>
+          </Link>
         </li>
       </ul>
     </Accordion.Content>
