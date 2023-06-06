@@ -18,6 +18,6 @@ router.post("/getUserData", authMiddleware, authController);
 //APply Doctor || POST
 router.post("/apply-doctor", authMiddleware, applyDoctorController);
 //notification Doctor || get
-router.post("/get-all-notification", authMiddleware, getAllNotificationController);
+router.post("/get-all-notification",authMiddleware, getAllNotificationController);
 router.post("/sendpasswordlink", PassResetController)
 module.exports = router;
