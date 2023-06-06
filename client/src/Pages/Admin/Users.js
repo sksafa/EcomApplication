@@ -29,6 +29,8 @@ const Users = () => {
   return (
     <Layout>
       <h1>Users table</h1>
+
+      {users?.map(person=> <p>{person.name}</p> )}
     </Layout>
   );
 };
