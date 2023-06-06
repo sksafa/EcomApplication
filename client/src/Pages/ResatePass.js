@@ -5,10 +5,10 @@ const ResatePass = () => {
   return (
     <>
      <div className="flex flex-col justify-center items-center px-6 pt-8 mx-auto md:h-screen pt:mt-0">
-    <a href="{}" className="flex justify-center items-center mb-8 text-2xl font-semibold lg:mb-10 ">
+    <p  className="flex justify-center items-center mb-8 text-2xl font-semibold lg:mb-10 ">
         {/* <img src="/images/logo.svg" className="mr-4 h-10" alt="Creative Tim Logo" / > */}
         <span className="self-center text-2xl font-bold whitespace-nowrap">THE IBN SINA TRUST</span> 
-    </a>
+    </p>
     {/* <!-- Card --> */}
     <div className="p-10 w-full max-w-lg bg-white rounded-2xl shadow-xl shadow-gray-300">
         <div className="space-y-8">

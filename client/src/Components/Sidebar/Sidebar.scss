@@ -1,10 +1,5 @@
 .main-container {
     display: flex;
-
-    // position: absolute;
-    // flex-direction: column;
-    position: sticky;
-    top: 0;
   }
   /* Sidebar */
 .sidebar {
@@ -13,9 +8,9 @@
     background:#3F5289;
     color: #D7DBE7;
     // color: rgb(53, 49, 49);
-    // height: 100vh;
-    position: sticky;
-    top: 0;
+    height: 100vh;
+    // position: fixed;
+    // top: 0;
     overflow-y: auto;
   }
 
@@ -103,8 +98,8 @@
 }
 .menu{
     display: flex;
-    // color: white;
-    color: rgb(53, 49, 49);
+    color: white;
+    // color: rgb(53, 49, 49);
     font: bold;
     gap: 10px;
     padding: 5px 10px;
