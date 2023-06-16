@@ -36,6 +36,7 @@ const Sidebar = ({ children }) => {
     //   icon: <FaUser />,
     // },
     {
+      // /doctor/profile/:id
       path: `/doctor/profile/${user?._id}`,
       name: "Profile",
       icon: <CgProfile />,

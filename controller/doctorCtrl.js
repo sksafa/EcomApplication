@@ -24,7 +24,7 @@ const updateDoctorProfileController = async (req, res, next) => {
       { userId: req.body.userId },
       req.body
     );
-    res.status(201).send({
+    res.status(200).send({
       success: true,
       message: "Doctor Profile Updated...",
       data: doctor,
@@ -39,4 +39,27 @@ const updateDoctorProfileController = async (req, res, next) => {
   }
 };
 
-module.exports = { getDoctorInfoController, updateDoctorProfileController };
+const getDoctorByIdController = async (req, res) => {
+  try {
+    // const _id = req.body.doctorId;
+    const doctor = await doctorModel.findOne({ _id: req.body.doctorId });
+    res.status(200).send({
+      sussess: true,
+      message: "Single Doc Info Fetched...",
+      data: doctor,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      error,
+      message: "error in single data loading...",
+    });
+  }
+};
+
+module.exports = {
+  getDoctorInfoController,
+  updateDoctorProfileController,
+  getDoctorByIdController,
+};
