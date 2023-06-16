@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 
 const BookingPage = () => {
   const params = useParams();
-  const [doctor, setDoctor] = useState([]);
+  const [doctor, setDoctor] = useState({});
   // console.log(doctor, "akta doctor");
   const getDoctorById = async () => {
     try {
@@ -24,7 +24,7 @@ const BookingPage = () => {
       );
       if (result.data.success) {
         setDoctor(result.data.data);
-        console.log(result.data.data, "baler response");
+        console.log( "saymon response", result.data.data);
       }
     } catch (error) {
       console.log(error);
