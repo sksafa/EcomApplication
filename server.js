@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 const userRoute = require("./routes/userRoutes");
 const adminRoute = require("./routes/adminRoutes");
+const doctorRoute = require("./routes/doctorRoutes");
 
 mongoose.set("strictQuery", true);
 // dot env config
@@ -22,6 +23,7 @@ app.use(moragan("dev"));
 // routes
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/admin", adminRoute);
+app.use("/api/v1/doctor", doctorRoute);
 app.get("/", (req, res) => {
   res.send(`<h1>App is running</h1>`);
 });

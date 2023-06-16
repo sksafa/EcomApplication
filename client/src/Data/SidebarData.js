@@ -10,6 +10,9 @@ import {
 import { SlCalender } from "react-icons/sl";
 import { GiDoctorFace } from "react-icons/gi";
 import { CgProfile } from "react-icons/cg";
+// import { FaUserDoctor } from "react-icons/fa";
+// import { FaUserDoctor } from "@react-icons/all-files/fa/FaUserDoctor";
+
 // import { BiAnalyse, BiSearch } from "react-icons/bi";
 import { BiCog } from "react-icons/bi";
 import {
@@ -25,6 +28,11 @@ export const userMenu = [
   {
     path: "/",
     name: "Dashboard",
+    icon: <AiFillDashboard />,
+  },
+  {
+    path: "/all_doctor_list",
+    name: "Doctors",
     icon: <AiFillDashboard />,
   },
   {

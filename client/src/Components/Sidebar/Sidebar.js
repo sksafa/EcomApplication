@@ -8,6 +8,9 @@ import { NavLink } from "react-router-dom";
 import MenuSidebar from "./MenuSidebar";
 import { adminMenu, userMenu } from "../../Data/SidebarData";
 import { useSelector } from "react-redux";
+import { AiFillDashboard } from "react-icons/ai";
+import { SlCalender } from "react-icons/sl";
+import { CgProfile } from "react-icons/cg";
 // import toast from "react-hot-toast";
 
 // sidebar data...
@@ -16,9 +19,36 @@ const Sidebar = ({ children }) => {
   const { user } = useSelector((state) => state.user);
   // const location = useLocation();
   // const navigate = useNavigate();
+  const doctorMenu = [
+    {
+      path: "/",
+      name: "Home",
+      icon: <AiFillDashboard />,
+    },
+    {
+      path: "/appointments",
+      name: "Appointments",
+      icon: <SlCalender />,
+    },
+    // {
+    //   path: "/apply_doctor",
+    //   name: "Apply Doctor",
+    //   icon: <FaUser />,
+    // },
+    {
+      // /doctor/profile/:id
+      path: `/doctor/profile/${user?._id}`,
+      name: "Profile",
+      icon: <CgProfile />,
+    },
+  ];
   const [isOpen, setIsOpen] = useState(true);
   const toggle = () => setIsOpen(!isOpen);
-  const SidebarMenu = user?.isAdmin ? adminMenu : userMenu;
+  const SidebarMenu = user?.isAdmin
+    ? adminMenu
+    : user?.isDoctor
+    ? doctorMenu
+    : userMenu;
 
   // const handleLogout = () => {
   //   localStorage.clear();

@@ -1,24 +1,26 @@
-import React from "react";
-import Layout from "./../Components/Layout";
-import { Col, Form, Input, Row, TimePicker, message } from "antd";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { showLoading, hideLoading } from "../redux/features/alertSlice";
+import React, { useEffect, useState } from "react";
+import Layout from "../../Components/Layout";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import { Col, Form, Input, Row, TimePicker, message } from "antd";
+import { hideLoading, showLoading } from "../../redux/features/alertSlice";
 import moment from "moment";
-
-const ApplyDoctor = () => {
+const DoctorProfile = () => {
   const { user } = useSelector((state) => state.user);
-
+  console.log(user);
+  const [doctor, setDoctor] = useState(null);
+  console.log("dhur bal", doctor);
+  const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  //handle form
+
+  // update doctor info function..... start
   const handleFinish = async (values) => {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "/api/v1/user/apply-doctor",
-        // { ...values, userId: user._id },
+        "/api/v1/doctor/updateProfile",
         {
           ...values,
           userId: user._id,
@@ -35,7 +37,7 @@ const ApplyDoctor = () => {
       );
       dispatch(hideLoading());
       if (res.data.success) {
-        message.success(res.data.success);
+        message.success(res.data.message);
         navigate("/");
       } else {
         message.error(res.data.success);
@@ -46,11 +48,48 @@ const ApplyDoctor = () => {
       message.error("Somthing Went Wrrong ");
     }
   };
+  // update doctor info function..... end
+
+  const getDoctorInfo = async () => {
+    try {
+      const res = await axios.post(
+        "/api/v1/doctor/getDoctorInfo",
+        {
+          userId: params.id,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      if (res.data.success) {
+        setDoctor(res.data.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getDoctorInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <Layout>
-      <div className="p-5">
-        <h1 className="text-center text-purple-800 font-bold">Apply Doctor</h1>
-        <Form layout="vertical" onFinish={handleFinish} className="m-3">
+      <h1>Manage Doctors Profile</h1>
+      {doctor && (
+        <Form
+          layout="vertical"
+          onFinish={handleFinish}
+          className="m-3"
+          initialValues={{
+            ...doctor,
+            timings: [
+              moment(doctor.timings[0], "HH:mm"),
+              moment(doctor.timings[1], "HH:mm"),
+            ],
+          }}
+        >
           <h4 className="font-bold mb-2">Personal Details : </h4>
           <Row gutter={20}>
             <Col xs={24} md={24} lg={8}>
@@ -156,14 +195,14 @@ const ApplyDoctor = () => {
                 className="bg-blue-500  hover:bg-blue-700 text-white font-bold mt-6 py-2 px-4 rounded"
                 type="submit"
               >
-                Submit
+                Update
               </button>
             </Col>
           </Row>
         </Form>
-      </div>
+      )}
     </Layout>
   );
 };
 
-export default ApplyDoctor;
+export default DoctorProfile;
