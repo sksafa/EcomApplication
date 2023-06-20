@@ -44,7 +44,7 @@ const getDoctorByIdController = async (req, res) => {
     // const _id = req.body.doctorId;
     const doctor = await doctorModel.findOne({ _id: req.body.doctorId });
     res.status(200).send({
-      sussess: true,
+      success: true,
       message: "Single Doc Info Fetched...",
       data: doctor,
     });

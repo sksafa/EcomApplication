@@ -3,7 +3,8 @@ import Layout from "../Components/Layout";
 import { useState } from "react";
 import axios from "axios";
 import { Row } from "antd";
-import DoctorListCard from "../Components/DoctorListCard/DoctorListCard";
+// import DoctorListCard from "../Components/DoctorListCard/DoctorListCard";
+import DoctorListTable from "../Components/DoctorListTable/DoctorListTable";
 
 const DoctorsList = () => {
   const [doctors, setDoctors] = useState([]);
@@ -36,7 +37,7 @@ const DoctorsList = () => {
       <Row>
         {doctors &&
           doctors.map((doctorData) => (
-            <DoctorListCard doctorData={doctorData} />
+            <DoctorListTable doctorData={doctorData} />
           ))}
       </Row>
     </Layout>
