@@ -1,13 +1,14 @@
-import React, { useEffect } from "react";
-import Layout from "../Components/Layout";
-import { useState } from "react";
+import React, { useState } from "react";
+import DoctorCard from "./DoctorCard";
+import TimeSelection from "./TImeSelection";
 import axios from "axios";
-import { Row } from "antd";
-// import DoctorListCard from "../Components/DoctorListCard/DoctorListCard";
-import DoctorListTable from "../Components/DoctorListTable/DoctorListTable";
+import { useEffect } from "react";
+import ModalForm from "./ModalForm";
 
-const DoctorsList = () => {
+const AppointmentBooking = () => {
   const [doctors, setDoctors] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+
   // console.log("doctor lists", doctors);
   const getDoctorList = async () => {
     try {
@@ -32,16 +33,17 @@ const DoctorsList = () => {
     getDoctorList();
   }, []);
   return (
-    <Layout>
-      <h1>doctor lists</h1>
-      <Row>
+    <div className=" mt-10 p-20">
+      <TimeSelection />
+      <div className="flex flex-wrap justify-center">
         {doctors &&
           doctors.map((doctorData) => (
-            <DoctorListTable doctorData={doctorData} />
+            <DoctorCard setShowModal={setShowModal} doctorData={doctorData} />
           ))}
-      </Row>
-    </Layout>
+      </div>
+      <ModalForm showModal={showModal} setShowModal={setShowModal} />
+    </div>
   );
 };
 
-export default DoctorsList;
+export default AppointmentBooking;
