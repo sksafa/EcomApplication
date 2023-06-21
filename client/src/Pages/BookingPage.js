@@ -4,11 +4,15 @@ import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { DatePicker, TimePicker } from "antd";
+import moment from "moment";
 
 const BookingPage = () => {
   const params = useParams();
-  const [doctor, setDoctor] = useState([]);
-  // console.log(doctor, "akta doctor");
+  const [doctors, setDoctors] = useState([]);
+  const [date, setDate] = useState();
+  const [timings, setTimings] = useState();
+  const [isAvailable, setIsAvailable] = useState();
   const getDoctorById = async () => {
     try {
       const result = await axios.post(
@@ -23,7 +27,7 @@ const BookingPage = () => {
         }
       );
       if (result.data.success) {
-        setDoctor(result.data.data);
+        setDoctors(result.data.data);
         console.log(result.data.data, "baler response");
       }
     } catch (error) {
@@ -36,14 +40,43 @@ const BookingPage = () => {
   }, []);
   return (
     <Layout>
-      <h2> booking page</h2>
-      <div className="container">
-        {doctor && (
-          <h3>
-            Dr.{doctor.firstName} {doctor.lastName}
-          </h3>
+      <h3>Booking Page</h3>
+      <div className="container m-2">
+        {doctors && (
+          <div>
+            <h4>
+              Dr.{doctors.firstName} {doctors.lastName}
+            </h4>
+            <h4>Fees : {doctors.feesPerCunsaltation}</h4>
+            <h4>
+              Timings : {doctors.timings && doctors.timings[0]} -{" "}
+              {doctors.timings && doctors.timings[1]}{" "}
+            </h4>
+            <div className="flex col-auto w-50">
+              <DatePicker
+                className="m-2"
+                format="DD-MM-YYYY"
+                onChange={(value) =>
+                  setDate(moment(value).format("DD-MM-YYYY"))
+                }
+              />
+              <TimePicker
+                format="HH:mm"
+                className="m-2"
+                onChange={(value) => {
+                  setDate(moment(value).format("HH:mm"));
+                }}
+              />
+              <button className="btn btn-primary mt-2">
+                Check Availability
+              </button>
+              <button className="btn btn-dark mt-2">Book Now</button>
+              {/* <button className="btn btn-dark mt-2" onClick={handleBooking}>
+              Book Now
+            </button> */}
+            </div>
+          </div>
         )}
-        <h1>Dr.{}</h1>
       </div>
     </Layout>
   );
