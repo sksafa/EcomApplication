@@ -12,7 +12,7 @@ const BookingPage = () => {
   const [doctors, setDoctors] = useState([]);
   const [date, setDate] = useState();
   const [timings, setTimings] = useState();
-  const [isAvailable, setIsAvailable] = useState();
+  const [isAvailable, setIsAvailable] = useState()
   const getDoctorById = async () => {
     try {
       const result = await axios.post(
@@ -28,7 +28,7 @@ const BookingPage = () => {
       );
       if (result.data.success) {
         setDoctors(result.data.data);
-        console.log(result.data.data, "baler response");
+        console.log(result.data.data, "baler response")
       }
     } catch (error) {
       console.log(error);
