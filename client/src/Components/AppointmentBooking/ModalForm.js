@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ModalForm({ showModal, setShowModal }) {
+export default function ModalForm({ showModal, setShowModal,singleDoctor }) {
   return (
     <>
       {showModal ? (
@@ -23,6 +23,7 @@ export default function ModalForm({ showModal, setShowModal }) {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
+                 <h1>{singleDoctor.firstName}</h1>
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
                     I always felt like I could do anything. That’s the main
                     thing people are controlled by! Thoughts- their perception

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 import docpic from "./docProfile.jpg";
-const DoctorCard = ({ doctorData, setShowModal }) => {
+const DoctorCard = ({ doctorData, handleOpenModel }) => {
   console.log("dhur bal", doctorData);
   const {
     firstName,
@@ -38,7 +38,7 @@ const DoctorCard = ({ doctorData, setShowModal }) => {
             <span className=" uppercase">{feesPerCunsaltation}</span> $
           </p>
           <button
-            onClick={() => setShowModal(true)}
+            onClick={() => handleOpenModel(doctorData)}
             className="px-4 py-2 text-sm text-blue-100 bg-blue-500 rounded shadow"
           >
             Book Appointment

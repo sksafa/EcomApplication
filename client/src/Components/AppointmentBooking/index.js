@@ -8,6 +8,7 @@ import ModalForm from "./ModalForm";
 const AppointmentBooking = () => {
   const [doctors, setDoctors] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [singleDoctor, setSingleDoctor] = useState({});
 
   // console.log("doctor lists", doctors);
   const getDoctorList = async () => {
@@ -32,16 +33,23 @@ const AppointmentBooking = () => {
   useEffect(() => {
     getDoctorList();
   }, []);
+
+
+  const handleOpenModel = (singleDoctorData) =>{
+    setSingleDoctor(singleDoctorData)
+    setShowModal(true)
+  }
+
   return (
     <div className=" mt-10 p-20">
       <TimeSelection />
       <div className="flex flex-wrap justify-center">
         {doctors &&
           doctors.map((doctorData) => (
-            <DoctorCard setShowModal={setShowModal} doctorData={doctorData} />
+            <DoctorCard doctorData={doctorData} handleOpenModel={handleOpenModel} />
           ))}
       </div>
-      <ModalForm showModal={showModal} setShowModal={setShowModal} />
+      <ModalForm showModal={showModal} setShowModal={setShowModal} singleDoctor={singleDoctor} />
     </div>
   );
 };
