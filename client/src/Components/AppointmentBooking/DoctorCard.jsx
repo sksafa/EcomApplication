@@ -10,7 +10,7 @@ const DoctorCard = ({ doctorData, handleOpenModel }) => {
     experience,
     feesPerCunsaltation,
     _id,
-    // timings,
+    timings,
   } = doctorData;
 
   return (
@@ -25,6 +25,14 @@ const DoctorCard = ({ doctorData, handleOpenModel }) => {
           <h4 className="text-xl font-semibold tracking-tight text-blue-600">
             DR. {firstName} {""} {lastName}
           </h4>
+          <p className="mb-2 leading-normal">
+            Available Time: {""}
+            <span className=" uppercase">
+              {timings[0]}
+              {"-"}
+              {timings[1]}
+            </span>
+          </p>
           <p className="mb-2 leading-normal">
             Specialization: {""}
             <span className=" uppercase">{specialization}</span>
