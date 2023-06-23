@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const doctorModel = require("../models/doctorModel");
+const appointmentModel = require("../models/appointmentModel");
 
 // email config
 const transportar = nodemailer.createTransport({
@@ -217,6 +218,33 @@ const getAllDoctorsController = async (req, res) => {
     });
   }
 };
+
+const bookAppointmentController = async (req, res) => {
+  try {
+    const appointmentStatus = (req.body.status = "pending");
+    const newAppointment = new appointmentModel(appointmentStatus);
+    await newAppointment.save();
+    const user = await userModel.findOne({ _Id: req.body.userId });
+    user.notifcation.push({
+      type: "New-appointment-request",
+      message: `A new appointment request from ${req.body.userInfo.name}`,
+      onCLickPath: "/user/appointments",
+    });
+    await user.save();
+    res.status(200).send({
+      success: true,
+      message: "Appointment Book Successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "error while booking appointment",
+      error,
+    });
+  }
+};
+
 module.exports = {
   loginController,
   registerController,
@@ -226,4 +254,5 @@ module.exports = {
   getAllNotificationController,
   deleteAllNotificationController,
   getAllDoctorsController,
+  bookAppointmentController,
 };

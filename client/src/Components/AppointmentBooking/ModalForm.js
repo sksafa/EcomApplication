@@ -1,6 +1,47 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { hideLoading, showLoading } from "../../redux/features/alertSlice";
+import axios from "axios";
+import { message } from "antd";
 
-export default function ModalForm({ showModal, setShowModal,singleDoctor }) {
+export default function ModalForm({
+  showModal,
+  setShowModal,
+  singleDoctor,
+  date,
+  time,
+}) {
+  const { user } = useSelector((state) => state.user);
+  const { _id } = singleDoctor;
+  const dispatch = useDispatch();
+  const handleBooking = async () => {
+    try {
+      dispatch(showLoading());
+      const res = await axios.post(
+        "/api/v1/user/book-appointment",
+        {
+          doctorId: _id,
+          userId: user.id,
+          doctorInfo: singleDoctor,
+          date: date,
+          time: time,
+        },
+        {
+          headers: {
+            Authorization: `Bearer${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      dispatch(hideLoading());
+      if (res.data.success) {
+        message.success(res.data.message);
+      }
+      setShowModal(false);
+    } catch (error) {
+      console.log(error);
+      dispatch(hideLoading());
+    }
+  };
   return (
     <>
       {showModal ? (
@@ -23,7 +64,8 @@ export default function ModalForm({ showModal, setShowModal,singleDoctor }) {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                 <h1>{singleDoctor.firstName}</h1>
+                  <h1>{singleDoctor.firstName}</h1>
+                  <h1>{singleDoctor._id}</h1>
                   <p className="my-4 text-slate-500 text-lg leading-relaxed">
                     I always felt like I could do anything. That’s the main
                     thing people are controlled by! Thoughts- their perception
@@ -44,7 +86,8 @@ export default function ModalForm({ showModal, setShowModal,singleDoctor }) {
                   <button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    // onClick={() => setShowModal(false)}
+                    onClick={handleBooking}
                   >
                     Save Changes
                   </button>
