@@ -1,26 +1,26 @@
 import React from "react";
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./Pages/Home";
-import Login from "./Pages/Login";
-import Register from "./Pages/Register";
-import ForgotPass from "./Pages/ForgotPass";
-import ResatePass from "./Pages/ResatePass";
 import { useSelector } from "react-redux";
-import Spinner from "./Components/Spinner";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import PublicRoute from "./Components/PublicRoute";
-import HomePage from "./Pages/HomePage";
-import Profile from "./Pages/Profile";
-import ApplyDoctor from "./Pages/ApplyDoctor";
-import NotificationPage from "./Pages/NotificationPage";
-import Users from "./Pages/Admin/Users";
+import Spinner from "./Components/Spinner";
 import Doctors from "./Pages/Admin/Doctors";
+import Users from "./Pages/Admin/Users";
+import AnalyticsPage from "./Pages/AnalyticsPage";
+import ApplyDoctor from "./Pages/ApplyDoctor";
+import AppointmentPage from "./Pages/AppointmentPage";
+import BookingPage from "./Pages/BookingPage";
 import DoctorProfile from "./Pages/Doctor/Profile";
 import DoctorsList from "./Pages/DoctorsList";
-import BookingPage from "./Pages/BookingPage";
-import AppointmentPage from "./Pages/AppointmentPage";
-import AnalyticsPage from "./Pages/AnalyticsPage";
+import ForgotPass from "./Pages/ForgotPass";
+import Home from "./Pages/Home";
+import HomePage from "./Pages/HomePage";
+import Login from "./Pages/Login";
+import NotificationPage from "./Pages/NotificationPage";
+import AdminProfilePage from "./Pages/Profile/AdminProfilePage";
+import Register from "./Pages/Register";
+import ResatePass from "./Pages/ResatePass";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -42,16 +42,16 @@ function App() {
             />
 
             <Route
-              path="/profile"
+              path="/admin_profile"
               element={
                 <ProtectedRoute>
-                  <Profile />
+                   <AdminProfilePage />
                 </ProtectedRoute>
               }
             />
             <Route
               path="/apply_doctor"
-              element={
+                  element={
                 <ProtectedRoute>
                   <ApplyDoctor />
                 </ProtectedRoute>

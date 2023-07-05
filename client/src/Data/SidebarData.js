@@ -70,8 +70,9 @@ export const adminMenu = [
     path: "/admin/users",
     icon: <FaUsers />,
   },
+ 
   {
-    path: "/doctor/doctorProfile",
+    path: "/admin_profile",
     name: "Profile",
     icon: <CgProfile />,
   },
@@ -128,22 +129,3 @@ export const adminMenu = [
   },
 ];
 
-// export const routes = [
-//     {
-//         path: "/patients",
-//         name: "Doctor Category",
-//         icon: <BiAnalyse />,
-//     },
-
-//     {
-//         path: "/order",
-//         name: "Order",
-//         icon: <BsCartCheck />,
-//     },
-
-//     {
-//         path: "/saved",
-//         name: "Saved",
-//         icon: <AiFillHeart />,
-//     },
-// ];
