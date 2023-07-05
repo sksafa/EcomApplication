@@ -1,3 +1,4 @@
+const appointmentModel = require("../models/appointmentModel");
 const doctorModel = require("../models/doctorModel");
 
 const getDoctorInfoController = async (req, res) => {
@@ -58,8 +59,28 @@ const getDoctorByIdController = async (req, res) => {
   }
 };
 
+const getDoctorAppointmentController = async (req,res) => {
+  try{
+     const doctor = await doctorModel.findOne({userId:req.body.userId});
+     const appointments = await appointmentModel.find({doctorId:doctor._id});
+     res.status(200).send({
+       success:true,
+       message: "Doctor Appointment Fetch Successfylly...",
+       data: appointments
+     })
+  }catch(error){
+    console.log(error)
+    res.status(500).send({
+      success:false,
+      message: ' Failed to fetch Appointment list',
+      error
+    })
+  }
+}
+
 module.exports = {
   getDoctorInfoController,
   updateDoctorProfileController,
   getDoctorByIdController,
+  getDoctorAppointmentController
 };

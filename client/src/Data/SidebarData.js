@@ -1,5 +1,5 @@
+import { CgProfile } from "react-icons/cg";
 import {
-  //   FaBars,
   FaEnvelopeOpenText,
   //   FaHome,
   FaLock,
@@ -7,22 +7,17 @@ import {
   FaUser,
   FaUsers,
 } from "react-icons/fa";
-import { SlCalender } from "react-icons/sl";
 import { GiDoctorFace } from "react-icons/gi";
-import { CgProfile } from "react-icons/cg";
+import { IoListCircle } from "react-icons/io5";
+import { SlCalender } from "react-icons/sl";
 // import { FaUserDoctor } from "react-icons/fa";
 // import { FaUserDoctor } from "@react-icons/all-files/fa/FaUserDoctor";
 
 // import { BiAnalyse, BiSearch } from "react-icons/bi";
-import { BiCog } from "react-icons/bi";
 import {
   AiFillDashboard,
-  //  AiFillHeart
 } from "react-icons/ai";
-import {
-  //  BsCartCheck,
-  BsPersonFillAdd,
-} from "react-icons/bs";
+import { BiCog } from "react-icons/bi";
 
 export const userMenu = [
   {
@@ -50,6 +45,11 @@ export const userMenu = [
     name: "Profile",
     icon: <CgProfile />,
   },
+  {
+    path: "/",
+    name: "Home",
+    icon: <AiFillDashboard />,
+  },
 ];
 
 // admin menu
@@ -60,17 +60,7 @@ export const adminMenu = [
     icon: <AiFillDashboard />,
   },
 
-  {
-    name: "Doctors",
-    path: "/admin/doctors",
-    icon: <GiDoctorFace />,
-  },
-  {
-    name: "Users",
-    path: "/admin/users",
-    icon: <FaUsers />,
-  },
- 
+
   {
     path: "/admin_profile",
     name: "Profile",
@@ -82,24 +72,19 @@ export const adminMenu = [
     icon: <FaEnvelopeOpenText />,
   },
   {
-    path: "/doctor",
-    name: "Doctor",
-    icon: <GiDoctorFace />,
+    path: "/user",
+    name: "Users List",
+    icon: <IoListCircle />,
     subRoutes: [
       {
-        path: "/doctor/doctors",
-        name: "Doctors ",
+        name: "Doctors",
+        path: "/admin/doctors",
+        icon: <GiDoctorFace />,
+      },
+      {
+        name: "Users",
+        path: "/admin/users",
         icon: <FaUsers />,
-      },
-      {
-        path: "/doctor/addDoctor",
-        name: "Add Doctor",
-        icon: <BsPersonFillAdd />,
-      },
-      {
-        path: "/doctor/doctorProfile",
-        name: "Profile",
-        icon: <CgProfile />,
       },
     ],
   },
@@ -126,6 +111,11 @@ export const adminMenu = [
         icon: <FaMoneyBill />,
       },
     ],
+  },
+  {
+    path: "/",
+    name: "Home",
+    icon: <AiFillDashboard />,
   },
 ];
 

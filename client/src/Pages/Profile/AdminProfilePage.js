@@ -1,7 +1,31 @@
-import React from "react";
+import axios from 'axios';
+import React, { useEffect, useState } from "react";
 import Layout from "../../Components/Layout";
-
 const AdminProfilePage = () => {
+  const [userData, setUserData] = useState([])
+    // login user data
+    const getUserData = async () => {
+      try {
+        const res = await axios.post(
+          "/api/v1/user/getUserData",
+          {},
+          {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+          }
+        );
+        if (res.status.success) {
+          setUserData(res.data.data)
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+  
+    useEffect(() => {
+      getUserData();
+    }, []);
   return (
     <Layout>
       <div className="p-16  flex items-center justify-center">
