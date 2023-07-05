@@ -26,7 +26,7 @@ import {
 
 export const userMenu = [
   {
-    path: "/",
+    path: "/dashbord-analytics",
     name: "Dashboard",
     icon: <AiFillDashboard />,
   },
@@ -55,7 +55,7 @@ export const userMenu = [
 // admin menu
 export const adminMenu = [
   {
-    path: "/",
+    path: "/dashbord_analytics",
     name: "Dashboard",
     icon: <AiFillDashboard />,
   },
@@ -70,8 +70,9 @@ export const adminMenu = [
     path: "/admin/users",
     icon: <FaUsers />,
   },
+ 
   {
-    path: "/doctor/doctorProfile",
+    path: "/admin_profile",
     name: "Profile",
     icon: <CgProfile />,
   },
@@ -128,22 +129,3 @@ export const adminMenu = [
   },
 ];
 
-// export const routes = [
-//     {
-//         path: "/patients",
-//         name: "Doctor Category",
-//         icon: <BiAnalyse />,
-//     },
-
-//     {
-//         path: "/order",
-//         name: "Order",
-//         icon: <BsCartCheck />,
-//     },
-
-//     {
-//         path: "/saved",
-//         name: "Saved",
-//         icon: <AiFillHeart />,
-//     },
-// ];
