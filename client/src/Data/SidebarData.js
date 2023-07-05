@@ -26,7 +26,7 @@ import {
 
 export const userMenu = [
   {
-    path: "/",
+    path: "/dashbord-analytics",
     name: "Dashboard",
     icon: <AiFillDashboard />,
   },
@@ -55,7 +55,7 @@ export const userMenu = [
 // admin menu
 export const adminMenu = [
   {
-    path: "/",
+    path: "/dashbord_analytics",
     name: "Dashboard",
     icon: <AiFillDashboard />,
   },
