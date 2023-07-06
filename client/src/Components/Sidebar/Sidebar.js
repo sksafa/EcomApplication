@@ -1,16 +1,15 @@
-import React from "react";
-import { FaBars } from "react-icons/fa";
-import { BiSearch } from "react-icons/bi";
-import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import "./Sidebar.scss";
-import { NavLink } from "react-router-dom";
-import MenuSidebar from "./MenuSidebar";
-import { adminMenu, userMenu } from "../../Data/SidebarData";
-import { useSelector } from "react-redux";
-import { AiFillDashboard } from "react-icons/ai";
-import { SlCalender } from "react-icons/sl";
+import React, { useState } from "react";
+import { AiFillDashboard, AiOutlineDeleteRow } from "react-icons/ai";
+import { BiSearch } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
+import { FaBars } from "react-icons/fa";
+import { SlCalender } from "react-icons/sl";
+import { useSelector } from "react-redux";
+import { Link, NavLink } from "react-router-dom";
+import { adminMenu, userMenu } from "../../Data/SidebarData";
+import MenuSidebar from "./MenuSidebar";
+import "./Sidebar.scss";
 // import toast from "react-hot-toast";
 
 // sidebar data...
@@ -20,26 +19,27 @@ const Sidebar = ({ children }) => {
   // const location = useLocation();
   // const navigate = useNavigate();
   const doctorMenu = [
-    {
-      path: "/",
-      name: "Home",
-      icon: <AiFillDashboard />,
-    },
+    
     {
       path: "/appointments",
       name: "Appointments",
       icon: <SlCalender />,
     },
-    // {
-    //   path: "/apply_doctor",
-    //   name: "Apply Doctor",
-    //   icon: <FaUser />,
-    // },
+    {
+      path: "/doctor_appointment",
+      name: "Appointment List",
+      icon: <AiOutlineDeleteRow />,
+    },
     {
       // /doctor/profile/:id
       path: `/doctor/profile/${user?._id}`,
       name: "Profile",
       icon: <CgProfile />,
+    },
+    {
+      path: "/",
+      name: "Home",
+      icon: <AiFillDashboard />,
     },
   ];
   const [isOpen, setIsOpen] = useState(true);
@@ -104,7 +104,7 @@ const Sidebar = ({ children }) => {
         style={{ marginRight: "10px" }}
         className="sidebar"
       >
-        <div className="top_section">
+        <div  className="top_section">
           <AnimatePresence>
             {isOpen && (
               <motion.h1
@@ -114,7 +114,7 @@ const Sidebar = ({ children }) => {
                 exit="hidden"
                 className="logo"
               >
-                THE IBN SINA
+              <Link to="/">THE IBN SINA</Link> 
               </motion.h1>
             )}
           </AnimatePresence>

@@ -1,7 +1,7 @@
+import { Table } from "antd";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Layout from "../../Components/Layout";
-import axios from "axios";
-import { Table } from "antd";
 const Users = () => {
   // states....
   const [users, setUsers] = useState([]);
@@ -62,7 +62,14 @@ const Users = () => {
       <h1 className="text-2xl font-bold text-blue-800 mb-8 uppercase m-5">
         Users table
       </h1>
-      <Table columns={columns} dataSource={users} />
+      <Table 
+        columns={columns} 
+        dataSource={users}
+        pagination={{
+          pageSize:5,
+          total:10
+        }}
+      />
     </Layout>
   );
 };
