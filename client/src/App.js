@@ -15,7 +15,6 @@ import DoctorProfile from "./Pages/Doctor/Profile";
 import DoctorsList from "./Pages/DoctorsList";
 import ForgotPass from "./Pages/ForgotPass";
 import Home from "./Pages/Home";
-// import HomePage from "./Pages/HomePage";
 import DoctorAppointmentPage from "./Pages/DoctorAppointmentPage";
 import Login from "./Pages/Login";
 import NotificationPage from "./Pages/NotificationPage";

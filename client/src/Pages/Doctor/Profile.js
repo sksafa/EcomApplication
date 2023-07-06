@@ -10,7 +10,6 @@ const DoctorProfile = () => {
   const { user } = useSelector((state) => state.user);
   console.log(user);
   const [doctor, setDoctor] = useState(null);
-  console.log("dhur bal", doctor);
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
