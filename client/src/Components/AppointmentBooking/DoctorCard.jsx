@@ -2,7 +2,6 @@
 import React from "react";
 import docpic from "./docProfile.jpg";
 const DoctorCard = ({ doctorData, handleOpenModel }) => {
-  console.log("dhur bal", doctorData);
   const {
     firstName,
     lastName,

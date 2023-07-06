@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaUser } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -30,11 +30,12 @@ const Sidebar = ({ children }) => {
       name: "Appointments",
       icon: <SlCalender />,
     },
-    // {
-    //   path: "/apply_doctor",
-    //   name: "Apply Doctor",
-    //   icon: <FaUser />,
-    // },
+
+    {
+      path: "/doctor-appointment",
+      name: "Appointment",
+      icon: <SlCalender />,
+    },
     {
       // /doctor/profile/:id
       path: `/doctor/profile/${user?._id}`,
@@ -158,7 +159,8 @@ const Sidebar = ({ children }) => {
                 to={route.path}
                 key={index}
                 className="link"
-                activeClassName="active"
+                activeclassname="active"
+                // activeClassName="active"
               >
                 <div className="icon">{route.icon}</div>
                 <AnimatePresence>

@@ -35,11 +35,7 @@ export const userMenu = [
     name: "Doctors",
     icon: <AiFillDashboard />,
   },
-  {
-    path: "/appointments",
-    name: "Appointments",
-    icon: <SlCalender />,
-  },
+
   {
     path: "/apply_doctor",
     name: "Apply Doctor",
@@ -74,6 +70,11 @@ export const adminMenu = [
     path: "/doctor/doctorProfile",
     name: "Profile",
     icon: <CgProfile />,
+  },
+  {
+    path: "/appointment-list",
+    name: "Appointment",
+    icon: <SlCalender />,
   },
   {
     path: "/approve_doctor",

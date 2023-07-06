@@ -89,8 +89,8 @@ const MenuSidebar = ({ showAnimation, route, isOpen, setIsOpen }) => {
             {route.subRoutes.map((subRoute, i) => (
               <motion.div variants={menuItemAnimation} custom={i} key={i}>
                 <NavLink
-                  activeClassName="active"
-                  // ActiveClassName='active'
+                  // activeClassName="active"
+                  activeclassname="active"
                   to={subRoute.path}
                   className="link"
                 >
