@@ -4,9 +4,9 @@ const moragan = require("morgan");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const connectDB = require("./config/db");
-const userRoute = require("./routes/userRoutes");
-const adminRoute = require("./routes/adminRoutes");
-const doctorRoute = require("./routes/doctorRoutes");
+const userRoute = require("./Routes/userRoutes");
+const adminRoute = require("./Routes/adminRoutes");
+const doctorRoute = require("./Routes/doctorRoutes");
 
 mongoose.set("strictQuery", true);
 // dot env config

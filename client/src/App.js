@@ -1,26 +1,26 @@
 import React from "react";
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./Pages/Home";
-import Login from "./Pages/Login";
-import Register from "./Pages/Register";
-import ForgotPass from "./Pages/ForgotPass";
-import ResatePass from "./Pages/ResatePass";
 import { useSelector } from "react-redux";
-import Spinner from "./Components/Spinner";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import PublicRoute from "./Components/PublicRoute";
-import HomePage from "./Pages/HomePage";
-import Profile from "./Pages/Profile";
-import ApplyDoctor from "./Pages/ApplyDoctor";
-import NotificationPage from "./Pages/NotificationPage";
-import Users from "./Pages/Admin/Users";
+import Spinner from "./Components/Spinner";
 import Doctors from "./Pages/Admin/Doctors";
+import Users from "./Pages/Admin/Users";
+import AnalyticsPage from "./Pages/AnalyticsPage";
+import ApplyDoctor from "./Pages/ApplyDoctor";
+import AppointmentPage from "./Pages/AppointmentPage";
+import BookingPage from "./Pages/BookingPage";
 import DoctorProfile from "./Pages/Doctor/Profile";
 import DoctorsList from "./Pages/DoctorsList";
-import AppointmentPage from "./Pages/AppointmentPage";
-import AppointmentList from "./Pages/AppointmentList";
-import DoctorAppointment from "./Pages/Doctor/DoctorAppointment";
+import ForgotPass from "./Pages/ForgotPass";
+import Home from "./Pages/Home";
+import DoctorAppointmentPage from "./Pages/DoctorAppointmentPage";
+import Login from "./Pages/Login";
+import NotificationPage from "./Pages/NotificationPage";
+import AdminProfilePage from "./Pages/Profile/AdminProfilePage";
+import Register from "./Pages/Register";
+import ResatePass from "./Pages/ResatePass";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -36,25 +36,32 @@ function App() {
               path="/dashboard"
               element={
                 <ProtectedRoute>
-                  <HomePage />
+                  <AnalyticsPage/>
                 </ProtectedRoute>
               }
             />
 
             <Route
-              path="/profile"
+              path="/admin_profile"
               element={
                 <ProtectedRoute>
-                  <Profile />
+                   <AdminProfilePage />
                 </ProtectedRoute>
               }
             />
-
             <Route
               path="/apply_doctor"
-              element={
+                  element={
                 <ProtectedRoute>
                   <ApplyDoctor />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/dashbord_analytics"
+              element={
+                <ProtectedRoute>
+                  <AnalyticsPage />
                 </ProtectedRoute>
               }
             />
@@ -67,22 +74,21 @@ function App() {
               }
             />
             <Route
-              path="/appointment-list"
+              path="/doctor_appointment"
               element={
                 <ProtectedRoute>
-                  <AppointmentList />
+                  <DoctorAppointmentPage />
                 </ProtectedRoute>
               }
             />
             <Route
-              path="/doctor-appointment"
+              path="/doctor/book-appointment/:doctorId"
               element={
                 <ProtectedRoute>
-                  <DoctorAppointment />
+                  <BookingPage />
                 </ProtectedRoute>
               }
             />
-
             <Route
               path="/all_doctor_list"
               element={

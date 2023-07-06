@@ -1,12 +1,12 @@
-import React from 'react'
-import logo from '../../Help/Images/doc_logo.jpg'
-import { PopupMenu } from "react-simple-widgets";
-import avater from '../../Help/Images/avater.png'
+import React from 'react';
+// import logo from '../../Help/Images/doc_logo.jpg'
+import { Badge } from "antd";
+import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
-import toast from "react-hot-toast";
-import { Badge, message } from "antd";
-import { BiCog } from "react-icons/bi";
+import { PopupMenu } from "react-simple-widgets";
+import avater from '../../Help/Images/avater.png';
+// import { BiCog } from "react-icons/bi";
 import { AiOutlineBell } from "react-icons/ai";
 
 const UserProfileDrop = () => {

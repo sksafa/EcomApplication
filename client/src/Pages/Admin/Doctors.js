@@ -1,7 +1,7 @@
+import { Table, message } from "antd";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Layout from "../../Components/Layout";
-import axios from "axios";
-import { Table, message } from "antd";
 const Doctors = () => {
   // states....
   const [doctors, setDoctors] = useState([]);
@@ -57,6 +57,7 @@ const Doctors = () => {
       render: (text, record) => (
         <span>
           {record.firstName}
+          {" "}
           {record.lastName}
         </span>
       ),
@@ -101,7 +102,14 @@ const Doctors = () => {
       <h1 className="text-2xl font-bold text-blue-800 mb-8 uppercase m-5">
         doctors table
       </h1>
-      <Table columns={columns} dataSource={doctors} />
+      <Table 
+        columns={columns} 
+        dataSource={doctors} 
+        pagination={{
+            pageSize:5,
+            total:10
+          }}
+      />
     </Layout>
   );
 };
