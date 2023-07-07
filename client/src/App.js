@@ -10,12 +10,11 @@ import Users from "./Pages/Admin/Users";
 import AnalyticsPage from "./Pages/AnalyticsPage";
 import ApplyDoctor from "./Pages/ApplyDoctor";
 import AppointmentPage from "./Pages/AppointmentPage";
-import BookingPage from "./Pages/BookingPage";
 import DoctorProfile from "./Pages/Doctor/Profile";
+import DoctorAppointmentPage from "./Pages/DoctorAppointmentPage";
 import DoctorsList from "./Pages/DoctorsList";
 import ForgotPass from "./Pages/ForgotPass";
 import Home from "./Pages/Home";
-import DoctorAppointmentPage from "./Pages/DoctorAppointmentPage";
 import Login from "./Pages/Login";
 import NotificationPage from "./Pages/NotificationPage";
 import AdminProfilePage from "./Pages/Profile/AdminProfilePage";
@@ -81,14 +80,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="/doctor/book-appointment/:doctorId"
-              element={
-                <ProtectedRoute>
-                  <BookingPage />
-                </ProtectedRoute>
-              }
-            />
+         
             <Route
               path="/all_doctor_list"
               element={

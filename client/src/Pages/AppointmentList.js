@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Layout from "../Components/Layout";
+import { Table } from "antd";
 import axios from "axios";
 import moment from "moment";
-import { Table } from "antd";
+import React, { useEffect, useState } from "react";
+import Layout from "../Components/Layout";
 
 const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);
@@ -34,7 +34,7 @@ const AppointmentList = () => {
       dataIndex: "name",
       render: (text, record) => (
         <span>
-          {record.doctorId.firstName}
+          {record.patientInfo.patientName}
           {record.doctorId.lastName}
         </span>
       ),
@@ -62,7 +62,13 @@ const AppointmentList = () => {
   return (
     <Layout>
       <h1>Patient AppointmentList</h1>
-      <Table columns={columns} dataSource={appointments} />
+      <Table 
+        columns={columns} 
+        dataSource={appointments} 
+        pagination={{
+            pageSize:5,
+            total:10
+      }} />
     </Layout>
   );
 };
