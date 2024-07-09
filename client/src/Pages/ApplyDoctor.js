@@ -1,11 +1,11 @@
-import React from "react";
-import Layout from "./../Components/Layout";
 import { Col, Form, Input, Row, TimePicker, message } from "antd";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { showLoading, hideLoading } from "../redux/features/alertSlice";
 import axios from "axios";
 import moment from "moment";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { hideLoading, showLoading } from "../redux/features/alertSlice";
+import Layout from "./../Components/Layout";
 
 const ApplyDoctor = () => {
   const { user } = useSelector((state) => state.user);
@@ -42,7 +42,6 @@ const ApplyDoctor = () => {
       }
     } catch (error) {
       dispatch(hideLoading());
-      console.log(error);
       message.error("Somthing Went Wrrong ");
     }
   };

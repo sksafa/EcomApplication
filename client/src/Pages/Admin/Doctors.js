@@ -5,7 +5,6 @@ import Layout from "../../Components/Layout";
 const Doctors = () => {
   // states....
   const [doctors, setDoctors] = useState([]);
-  console.log("all users data", doctors);
   // get users function...
   const getDoctors = async () => {
     try {

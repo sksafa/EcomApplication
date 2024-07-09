@@ -5,7 +5,6 @@ import React, { useEffect, useState } from "react";
 
 const DoctorAppointment = () => {
   const [appointments, setAppointments] = useState([]);
-  console.log("appointment list", appointments);
   const getAppointmentList = async () => {
     try {
       const res = await axios.get("/api/v1/doctor/doctor-appointments", {

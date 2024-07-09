@@ -11,7 +11,6 @@ const getDoctorInfoController = async (req, res) => {
       data: doctor,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       message: "failed to get doctors list something wrong..",
@@ -32,7 +31,6 @@ const updateDoctorProfileController = async (req, res, next) => {
       data: doctor,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       message: "failed to update the doctor profile....",
@@ -51,7 +49,6 @@ const getDoctorByIdController = async (req, res) => {
       data: doctor,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       error,
@@ -78,7 +75,6 @@ const doctorAppointmentController = async (req, res) => {
       message: "failed to fetch appointment list",
       error,
     });
-    console.log(error);
   }
 };
 
@@ -92,7 +88,6 @@ const getDoctorAppointmentController = async (req,res) => {
        data: appointments
      })
   }catch(error){
-    console.log(error)
     res.status(500).send({
       success:false,
       message: ' Failed to fetch Appointment list',
@@ -118,7 +113,6 @@ const updateStatusController = async (req,res) => {
       message: 'Appointment Status Updated'
      })
   }catch(error){
-    console.log(error)
     res.status(500).send({
       success:false,
       message:'status update failed',

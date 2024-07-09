@@ -1,19 +1,16 @@
-import React, { useEffect } from "react";
-import Layout from "../Components/Layout";
-import { useState } from "react";
-import axios from "axios";
 import { Row } from "antd";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import Layout from "../Components/Layout";
 // import DoctorListCard from "../Components/DoctorListCard/DoctorListCard";
 import DoctorListTable from "../Components/DoctorListTable/DoctorListTable";
 
 const DoctorsList = () => {
   const [doctors, setDoctors] = useState([]);
-  // console.log("doctor lists", doctors);
   const getDoctorList = async () => {
     try {
       const res = await axios.get(
         "/api/v1/user/getAllDoctors",
-        // { token: localStorage.getItem("token") },
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,

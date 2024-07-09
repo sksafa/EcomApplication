@@ -1,8 +1,8 @@
+import { message } from "antd";
+import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { hideLoading, showLoading } from "../../redux/features/alertSlice";
-import axios from "axios";
-import { message } from "antd";
 
 export default function ModalForm({
   showModal,
@@ -25,7 +25,6 @@ export default function ModalForm({
     }));
   };
 
-  console.log("rogi-ke", patientInfo);
   //   const { _id } = singleDoctor;
   const dispatch = useDispatch();
   const handleBooking = async () => {
@@ -56,10 +55,8 @@ export default function ModalForm({
       if (res.data.success) {
         message.success(res.data.message);
       }
-      //   console.log("baler book appointment", res.data);
       setShowModal(false);
     } catch (error) {
-      console.log(error);
       message.error(error);
       dispatch(hideLoading());
     }

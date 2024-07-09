@@ -7,8 +7,6 @@ import Layout from '../Components/Layout';
 const DoctorAppointmentPage = () => {
 
     const [appointments, setAppointments] = useState([]);
-    console.log("Appointment baler list", appointments);
-    // const {patientName,patientPhone} = appointments?.patientInfo
     // get users function...
     const getAppointments = async () => {
       try {

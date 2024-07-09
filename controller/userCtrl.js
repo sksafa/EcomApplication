@@ -19,7 +19,6 @@ const transportar = nodemailer.createTransport({
 const secretKey = process.env.JWT_SECRET;
 
 const registerController = async (req, res) => {
-  console.log(req.body)
   try {
     const existingUser = await userModel.findOne({ email: req.body.email });
     if (existingUser) {
@@ -32,7 +31,6 @@ const registerController = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     req.body.password = hashedPassword;
-    console.log(req.body)
     const data = await new userModel(req.body).save();
 
     res.status(201).send({
@@ -41,7 +39,6 @@ const registerController = async (req, res) => {
       data,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       message: `Register controller ${error.message}`,
@@ -72,7 +69,6 @@ const loginController = async (req, res) => {
       token,
     });
   } catch (error) {
-    console.log(error);
     // res.status(500).send({message: `Error in login CTRL &{error.message}`});
     res.status(500).send({
       success: false,
@@ -83,7 +79,6 @@ const loginController = async (req, res) => {
 
 // send link to email for reset password
 const PassResetController = async (req, res) => {
-  console.log(req.body);
   const { email } = req.body;
   if (!email) {
     res.status(401).json({ status: 401, message: "Enter Your Email" });
@@ -92,14 +87,12 @@ const PassResetController = async (req, res) => {
     const user = await userModel.findOne({ email: email });
     const token = jwt.sign({ _id: user._id }, secretKey, { expiresIn: "120s" });
 
-    console.log("token", token);
     const setusertoken = await user.findByIdAndUpdate(
       { _id: user._id },
       {
         verifytoken: token,
       }
     );
-    console.log("setusertoken", setusertoken);
   } catch (error) {}
 };
 
@@ -120,7 +113,6 @@ const authController = async (req, res) => {
       });
     }
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       message: "auth error",
       success: false,
@@ -151,7 +143,6 @@ const applyDoctorController = async (req, res) => {
       message: "Doctor Account Applied SUccessfully",
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       error,
@@ -176,7 +167,6 @@ const getAllNotificationController = async (req, res) => {
       data: updatedUser,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       message: "error in notification",
       success: false,
@@ -198,7 +188,6 @@ const deleteAllNotificationController = async (req, res) => {
       data: updatedUser,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       message: "unable to delete all notification...",
@@ -214,7 +203,6 @@ const getAllDoctorsController = async (req, res) => {
       data: doctors,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       error,
@@ -242,7 +230,6 @@ const bookAppointmentController = async (req, res) => {
       message: "Appointment Book Successfully",
     });
   } catch (error) {
-    console.log(error);
     res.status(500).send({
       success: false,
       message: "error while booking appointment",
@@ -286,7 +273,6 @@ const bookingAvailabilityController = async (req, res) => {
       error,
       message: "error in Booking",
     });
-    console.log(error);
   }
 };
 const getUserAppointmentController = async (req, res) => {
@@ -305,7 +291,6 @@ const getUserAppointmentController = async (req, res) => {
       error,
       message: "upps something wrong user appointment is not retrived",
     });
-    console.log(error);
   }
 };
 module.exports = {

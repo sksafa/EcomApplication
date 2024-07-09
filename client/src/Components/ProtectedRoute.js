@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
-import { Navigate } from "react-router-dom";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import { hideLoading, showLoading } from "../redux/features/alertSlice";
 import { setUser } from "../redux/features/userSlice";
 
@@ -33,7 +33,6 @@ export default function ProtectedRoute({ children }) {
     } catch (error) {
       localStorage.clear();
       dispatch(hideLoading());
-      console.log(error);
     }
   };
 

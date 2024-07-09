@@ -5,7 +5,6 @@ import Layout from "../../Components/Layout";
 const Users = () => {
   // states....
   const [users, setUsers] = useState([]);
-  console.log("all users data", users);
   // get users function...
   const getUsers = async () => {
     try {

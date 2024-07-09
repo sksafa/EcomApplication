@@ -6,7 +6,6 @@ import Layout from "../Components/Layout";
 
 const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);
-  console.log("appointment list", appointments);
   const getAppointmentList = async () => {
     try {
       const res = await axios.get("/api/v1/user/getUserAppointment", {
@@ -18,7 +17,7 @@ const AppointmentList = () => {
         setAppointments(res.data.data);
       }
     } catch (error) {
-      console.log("appointment list baler error day", error);
+      throw new Error("appointment list baler error day", error)
     }
   };
   useEffect(() => {

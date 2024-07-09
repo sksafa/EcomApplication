@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerSchema } from "../Components/Schema/registerSchema";
 import axios from 'axios';
+import React from 'react';
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from 'react-router-dom';
+import { registerSchema } from "../Components/Schema/registerSchema";
 
 
 const Ragister = () => {
@@ -20,7 +20,6 @@ const Ragister = () => {
     // Saving space
 
     const formSubmitHandler = async (data) => {
-        console.log(data);
         try {
             const res = await axios.post(`/api/v1/user/register`, data)
             if (res.data.success) {
@@ -32,7 +31,6 @@ const Ragister = () => {
             }
         } catch (error) {
             alert(error);
-            console.log(error);
         }
     };
     return (

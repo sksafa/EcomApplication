@@ -33,7 +33,6 @@ const NotificationPage = () => {
       }
     } catch (error) {
       dispatch(hideLoading());
-      console.log(error);
       message.error("something want wrong");
     }
   };
@@ -60,7 +59,6 @@ const NotificationPage = () => {
         message.error(res.data.message);
       }
     } catch (error) {
-      console.log(error);
       message.error("Somthing went Wrong In Notification");
     }
   };
