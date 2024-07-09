@@ -1,15 +1,13 @@
 import { CgProfile } from "react-icons/cg";
 import {
-  FaEnvelopeOpenText,
   //   FaHome,
   FaLock,
   FaMoneyBill,
   FaUser,
-  FaUsers,
+  FaUsers
 } from "react-icons/fa";
 import { GiDoctorFace } from "react-icons/gi";
 import { IoListCircle } from "react-icons/io5";
-import { SlCalender } from "react-icons/sl";
 // import { FaUserDoctor } from "react-icons/fa";
 // import { FaUserDoctor } from "@react-icons/all-files/fa/FaUserDoctor";
 
@@ -36,11 +34,11 @@ export const userMenu = [
     name: "Apply Doctor",
     icon: <FaUser />,
   },
-  {
-    path: "/doctor/doctorProfile",
-    name: "Profile",
-    icon: <CgProfile />,
-  },
+  // {
+  //   path: "/doctor/doctorProfile",
+  //   name: "Profile",
+  //   icon: <CgProfile />,
+  // },
   {
     path: "/",
     name: "Home",
@@ -62,16 +60,16 @@ export const adminMenu = [
     name: "Profile",
     icon: <CgProfile />,
   },
-  {
-    path: "/appointment-list",
-    name: "Appointment",
-    icon: <SlCalender />,
-  },
-  {
-    path: "/approve_doctor",
-    name: "Approve Doctors",
-    icon: <FaEnvelopeOpenText />,
-  },
+  // {
+  //   path: "/appointment-list",
+  //   name: "Appointment",
+  //   icon: <SlCalender />,
+  // },
+  // {
+  //   path: "/approve_doctor",
+  //   name: "Approve Doctors",
+  //   icon: <FaEnvelopeOpenText />,
+  // },
   {
     path: "/user",
     name: "Users List",

@@ -19,6 +19,7 @@ const transportar = nodemailer.createTransport({
 const secretKey = process.env.JWT_SECRET;
 
 const registerController = async (req, res) => {
+  console.log(req.body)
   try {
     const existingUser = await userModel.findOne({ email: req.body.email });
     if (existingUser) {
@@ -31,7 +32,9 @@ const registerController = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     req.body.password = hashedPassword;
+    console.log(req.body)
     const data = await new userModel(req.body).save();
+
     res.status(201).send({
       success: true,
       message: "Register Successfully",

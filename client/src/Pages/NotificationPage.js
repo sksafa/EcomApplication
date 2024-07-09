@@ -1,10 +1,10 @@
-import React from "react";
-import Layout from "../Components/Layout";
 import { Tabs, message } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { showLoading, hideLoading } from "../redux/features/alertSlice";
 import axios from "axios";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import Layout from "../Components/Layout";
+import { hideLoading, showLoading } from "../redux/features/alertSlice";
 const NotificationPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,6 +27,7 @@ const NotificationPage = () => {
       dispatch(hideLoading());
       if (res.data.success) {
         message.success(res.data.message);
+        window.location.reload()
       } else {
         message.error(res.data.message);
       }
@@ -54,6 +55,7 @@ const NotificationPage = () => {
       dispatch(hideLoading());
       if (res.data.success) {
         message.success(res.data.message);
+        window.location.reload()
       } else {
         message.error(res.data.message);
       }

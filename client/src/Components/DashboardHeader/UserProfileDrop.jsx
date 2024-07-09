@@ -19,8 +19,7 @@ const UserProfileDrop = () => {
   };
   return (
 
-    <div className=' flex '>
-
+    <div className=' flex z-30  '>
 
       <div className='mr-6' >
         <Badge style={{cursor:'pointer'}}  count={user && user.notifcation.length} onClick={()=> {navigate('/notification')}}>
@@ -32,7 +31,7 @@ const UserProfileDrop = () => {
       <h6 className='text-white mr-3 mt-1'>{user?.name}</h6>
       <div className="text-end">
         <PopupMenu>
-          <span className="  cursor-pointer ">
+          <span className="  cursor-pointer -z-10 ">
             {/* <small>Profile</small> */}
             <img loading='lazy' className="w-[30px] h-[30px] mr-0 rounded-full" src={avater} alt="Rounded avatar" />
           </span>
