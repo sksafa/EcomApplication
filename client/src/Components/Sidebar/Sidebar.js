@@ -6,7 +6,8 @@ import { CgProfile } from "react-icons/cg";
 import { FaBars } from "react-icons/fa";
 import { SlCalender } from "react-icons/sl";
 import { useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, Navigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { adminMenu, userMenu } from "../../Data/SidebarData";
 import MenuSidebar from "./MenuSidebar";
 import "./Sidebar.scss";
@@ -16,8 +17,7 @@ import "./Sidebar.scss";
 
 const Sidebar = ({ children }) => {
   const { user } = useSelector((state) => state.user);
-  // const location = useLocation();
-  // const navigate = useNavigate();
+  
   const doctorMenu = [
     
     {
@@ -50,11 +50,11 @@ const Sidebar = ({ children }) => {
     ? doctorMenu
     : userMenu;
 
-  // const handleLogout = () => {
-  //   localStorage.clear();
-  //   toast.success("Logout Successfully");
-  //   navigate("/login");
-  // };
+  const handleLogout = () => {
+    localStorage.clear();
+    toast.success("Logout Successfully");
+    Navigate("/login");
+  };
 
   const inputAnimation = {
     hidden: {
@@ -179,9 +179,9 @@ const Sidebar = ({ children }) => {
           })}
         </section>
 
-        {/* <div className="flex">
+        <div className="flex">
          <FaBars className='ml-3 mt-2'/> <h5 className='ml-2 mt-1 cursor-pointer' onClick={handleLogout}>Logout</h5>
-         </div> */}
+         </div>
       </motion.div>
     </div>
   );

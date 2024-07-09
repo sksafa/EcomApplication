@@ -26,23 +26,19 @@ const Navber = () => {
           <Navbar.Toggle />
         </div>
         <Navbar.Collapse className="">
-          {/* <Navbar.Link href="/navbars" active={true}>
-            Home
-          </Navbar.Link> */}
+       
           <Navbar.Link>
-            <Link to="/about">About</Link>
+            <Link to="/">About</Link>
           </Navbar.Link>
           <Navbar.Link>
             <Link to="/appointment-page">Appointment</Link>
           </Navbar.Link>
-          {/* <Navbar.Link>
-            <Link to="/service">Services</Link>
-          </Navbar.Link> */}
+       
           <Navbar.Link>
             <Link to="/dashboard">Dashboard</Link>
           </Navbar.Link>
           <Navbar.Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/">Contact</Link>
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>

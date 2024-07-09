@@ -34,11 +34,7 @@ export const userMenu = [
     name: "Apply Doctor",
     icon: <FaUser />,
   },
-  // {
-  //   path: "/doctor/doctorProfile",
-  //   name: "Profile",
-  //   icon: <CgProfile />,
-  // },
+
   {
     path: "/",
     name: "Home",
@@ -66,7 +62,7 @@ export const adminMenu = [
   //   icon: <SlCalender />,
   // },
   // {
-  //   path: "/approve_doctor",
+  //   // path: "/approve_doctor",
   //   name: "Approve Doctors",
   //   icon: <FaEnvelopeOpenText />,
   // },
@@ -95,17 +91,17 @@ export const adminMenu = [
     exact: true,
     subRoutes: [
       {
-        path: "/settings/profile",
+        // path: "/settings/profile",
         name: "Profile ",
         icon: <FaUser />,
       },
       {
-        path: "/settings/2fa",
+        // path: "/settings/2fa",
         name: "2FA",
         icon: <FaLock />,
       },
       {
-        path: "/settings/billing",
+        // path: "/settings/billing",
         name: "Billing",
         icon: <FaMoneyBill />,
       },

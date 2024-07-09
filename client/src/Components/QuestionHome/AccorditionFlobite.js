@@ -8,7 +8,7 @@ const AccorditionFlobite = () => {
      <Accordion alwaysOpen={true}>
   <Accordion.Panel>
     <Accordion.Title>
-      What is Flowbite?
+      What is IBN SINA?
     </Accordion.Title>
     <Accordion.Content>
       <p className="mb-2 text-gray-500 dark:text-gray-400">
@@ -28,7 +28,8 @@ const AccorditionFlobite = () => {
   </Accordion.Panel>
   <Accordion.Panel>
     <Accordion.Title>
-      Is there a Figma file available?
+      Is there a Appointment Booking System 
+      available?
     </Accordion.Title>
     <Accordion.Content>
       <p className="mb-2 text-gray-500 dark:text-gray-400">
@@ -48,7 +49,7 @@ const AccorditionFlobite = () => {
   </Accordion.Panel>
   <Accordion.Panel>
     <Accordion.Title>
-      What are the differences between Flowbite and Tailwind UI?
+      What are the differences between Hospital and Diognostic Center?
     </Accordion.Title>
     <Accordion.Content>
       <p className="mb-2 text-gray-500 dark:text-gray-400">
